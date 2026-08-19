@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LLM Attack Lab</title>
+  <link rel="stylesheet" href="/static/styles/main.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">
+      <span class="brand-mark">&#9881;</span>
+      <span class="brand-name">LLM Attack Lab</span>
+    </a>
+    <nav class="topbar-nav">
+      <span class="topbar-hint">Learn the OWASP Top 10 LLM attacks by example</span>
+    </nav>
+  </header>
+
+  <div class="layout" id="app">
+    <aside class="sidebar">
+      <h2 class="sidebar-title">Scenarios</h2>
+      <ul class="scenario-list">
+        <li v-for="item in scenarios" :key="item.id">
+          <button
+            class="scenario-link"
+            :class="{ active: item.id === selectedId }"
+            @click="selectScenario(item.id)"
+          >
+            <span class="scenario-link-title">{{ item.title }}</span>
+            <span class="scenario-link-cat">{{ item.category }}</span>
+          </button>
+        </li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <template v-if="scenario">
+        <!-- Always-visible header -->
+        <section class="scenario-head">
+          <div class="scenario-title-row">
+            <h1>{{ scenario.title }}</h1>
+            <span class="badge" v-for="tag in scenario.tags" :key="tag">{{ tag }}</span>
+          </div>
+          <div class="scenario-meta">
+            <span class="pill pill-category">{{ scenario.category }}</span>
+            <span class="pill pill-difficulty">{{ scenario.difficulty }}</span>
+          </div>
+          <p class="scenario-description">{{ scenario.description }}</p>
+        </section>
+
+        <!-- Tab bar -->
+        <div class="tab-bar" role="tablist">
+          <button
+            id="tab-describe"
+            role="tab"
+            class="tab-btn"
+            :class="{ active: activeTab === 'describe' }"
+            :aria-selected="activeTab === 'describe'"
+            aria-controls="panel-describe"
+            @click="activeTab = 'describe'"
+          >
+            <span class="tab-icon">&#128214;</span> Describe
+          </button>
+          <button
+            id="tab-try"
+            role="tab"
+            class="tab-btn"
+            :class="{ active: activeTab === 'try' }"
+            :aria-selected="activeTab === 'try'"
+            aria-controls="panel-try"
+            @click="activeTab = 'try'"
+          >
+            <span class="tab-icon">&#9654;</span> Try It
+          </button>
+        </div>
+
+        <!-- Describe panel -->
+        <div
+          id="panel-describe"
+          role="tabpanel"
+          aria-labelledby="tab-describe"
+          class="tab-panel"
+          :class="{ 'tab-panel--active': activeTab === 'describe' }"
+        >
+          <section class="article" v-if="scenario.article" v-html="renderedArticle"></section>
+          <div v-else class="empty" style="padding: 40px 0;">No article available for this scenario.</div>
+        </div>
+
+        <!-- Try It panel -->
+        <div
+          id="panel-try"
+          role="tabpanel"
+          aria-labelledby="tab-try"
+          class="tab-panel"
+          :class="{ 'tab-panel--active': activeTab === 'try' }"
+        >
+          <section class="try">
+            <div class="try-header">
+              <h2>Try it yourself</h2>
+              <div class="try-actions">
+                <button class="btn btn-secondary" :disabled="running" @click="resetCode">
+                  Reset
+                </button>
+                <button class="btn btn-run" :disabled="running" @click="run">
+                  <span v-if="!running">Run &#9654;</span>
+                  <span v-else>Running...</span>
+                </button>
+              </div>
+            </div>
+            <p class="try-hint">Edit the script and run it to see the result.</p>
+
+            <div class="editor">
+              <div class="editor-gutter">
+                <span v-for="(line, i) in codeLines" :key="i">{{ i + 1 }}</span>
+              </div>
+              <textarea
+                class="editor-input"
+                v-model="code"
+                spellcheck="false"
+                aria-label="Scenario code"
+              ></textarea>
+            </div>
+
+            <div class="expected" v-if="scenario.expected_output">
+              <h3>What to expect</h3>
+              <p>{{ scenario.expected_output }}</p>
+            </div>
+
+            <div class="output" :class="{ 'has-result': result || errorMessage }">
+              <template v-if="result">
+                <div class="output-bar">
+                  <span class="output-status"
+                        :class="{ ok: result.exit_code === 0 && !result.timed_out, err: result.exit_code !== 0 || result.timed_out }">
+                    {{ result.exit_code === 0 && !result.timed_out ? 'Success' : 'Failed' }}
+                  </span>
+                  <span class="output-time">{{ result.duration_ms }} ms</span>
+                </div>
+                <pre v-if="result.stdout" class="output-stdout">{{ result.stdout }}</pre>
+                <pre v-if="result.stderr" class="output-stderr">{{ result.stderr }}</pre>
+              </template>
+              <p v-else-if="errorMessage" class="output-error">{{ errorMessage }}</p>
+              <p v-else class="output-placeholder">Run the script to see its output here.</p>
+            </div>
+          </section>
+        </div>
+      </template>
+
+      <div v-else-if="loading" class="empty">Loading scenarios...</div>
+      <div v-else class="empty">Select a scenario from the sidebar to begin.</div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="https://unpkg.com/marked@15.0.0/marked.min.js"></script>
+  <script src="/static/scripts/api.js"></script>
+  <script src="/static/scripts/app.js"></script>
+</body>
+</html>
