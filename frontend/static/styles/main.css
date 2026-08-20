@@ -181,7 +181,39 @@ body {
 
 .try-header h2 { margin: 0; font-size: 1.3rem; }
 
-.try-actions { display: flex; gap: 8px; }
+.try-actions { display: flex; gap: 8px; align-items: center; }
+
+.mode-select {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 4px 8px 4px 12px;
+}
+
+.mode-select-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.mode-select select {
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-weight: 600;
+  color: var(--text);
+  padding: 4px 4px;
+  outline: none;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.mode-select select:disabled { opacity: 0.5; cursor: not-allowed; }
 
 .try-hint { color: var(--text-muted); font-size: 0.85rem; margin: 8px 0 16px; }
 
@@ -214,6 +246,53 @@ body {
   min-height: 320px;
 }
 
+.editor--readonly {
+  flex-direction: column;
+  min-height: 0;
+}
+
+.editor-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background: #090d16;
+  border-bottom: 1px solid #1e293b;
+}
+
+.editor-head-label {
+  color: #64748b;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.editor-copy {
+  border: 1px solid #334155;
+  background: transparent;
+  color: #94a3b8;
+  font: inherit;
+  font-size: 0.72rem;
+  padding: 3px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.editor-copy:hover { background: #1e293b; color: #e2e8f0; }
+
+.editor-prompt {
+  margin: 0;
+  padding: 16px;
+  color: var(--code-text);
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1.6;
+}
+
 .editor-gutter {
   display: flex;
   flex-direction: column;
@@ -232,23 +311,6 @@ body {
 .editor-gutter span {
   display: block;
   height: 1.6em;
-}
-
-.editor-input {
-  flex: 1;
-  min-height: 320px;
-  padding: 14px;
-  background: transparent;
-  border: none;
-  outline: none;
-  resize: vertical;
-  color: var(--code-text);
-  font-family: inherit;
-  font-size: inherit;
-  line-height: 1.6;
-  tab-size: 4;
-  white-space: pre;
-  overflow-x: auto;
 }
 
 .expected {

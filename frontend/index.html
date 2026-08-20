@@ -99,27 +99,28 @@
             <div class="try-header">
               <h2>Try it yourself</h2>
               <div class="try-actions">
-                <button class="btn btn-secondary" :disabled="running" @click="resetCode">
-                  Reset
-                </button>
+                <label class="mode-select">
+                  <span class="mode-select-label">Mode</span>
+                  <select v-model="selectedMode" :disabled="running">
+                    <option v-for="m in scenario.modes" :key="m" :value="m">
+                      {{ m }}
+                    </option>
+                  </select>
+                </label>
                 <button class="btn btn-run" :disabled="running" @click="run">
                   <span v-if="!running">Run &#9654;</span>
                   <span v-else>Running...</span>
                 </button>
               </div>
             </div>
-            <p class="try-hint">Edit the script and run it to see the result.</p>
+            <p class="try-hint">The attacker prompt is shown below. Pick a mode and press Run to send it to the assistant.</p>
 
-            <div class="editor">
-              <div class="editor-gutter">
-                <span v-for="(line, i) in codeLines" :key="i">{{ i + 1 }}</span>
+            <div class="editor editor--readonly">
+              <div class="editor-head">
+                <span class="editor-head-label">Attacker Prompt</span>
+                <button class="editor-copy" @click="copyPrompt">Copy</button>
               </div>
-              <textarea
-                class="editor-input"
-                v-model="code"
-                spellcheck="false"
-                aria-label="Scenario code"
-              ></textarea>
+              <pre class="editor-prompt">{{ scenario.attacker_prompt }}</pre>
             </div>
 
             <div class="expected" v-if="scenario.expected_output">
@@ -153,7 +154,7 @@
 
   <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
   <script src="https://unpkg.com/marked@15.0.0/marked.min.js"></script>
-  <script src="/static/scripts/api.js"></script>
-  <script src="/static/scripts/app.js"></script>
+  <script src="/static/scripts/api.js?v=2"></script>
+  <script src="/static/scripts/app.js?v=2"></script>
 </body>
 </html>

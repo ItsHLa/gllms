@@ -33,7 +33,7 @@ const Api = {
     return this.get(`/api/scenarios/${encodeURIComponent(id)}`);
   },
 
-  runScenario(id, code) {
-    return this.post(`/api/run/${encodeURIComponent(id)}`, { code });
+  runScenario(id, body) {
+    return this.post(`/api/run/${encodeURIComponent(id)}`, body || {});
   },
 };
