@@ -36,4 +36,6 @@ def get_scenario(scenario_id: str) -> ScenarioDetail:
         article=scenario.article,
         code=scenario.code,
         expected_output=scenario.expected_output,
+        attacker_prompt=scenario.attacker_prompt,
+        modes=scenario.modes,
     )

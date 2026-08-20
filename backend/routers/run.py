@@ -1,3 +1,5 @@
+import re
+
 from fastapi import APIRouter, HTTPException
 
 from backend.config import settings
@@ -7,6 +9,17 @@ from backend.scenarios.registry import registry
 
 router = APIRouter(tags=["run"])
 
+_MODE_ASSIGN = re.compile(r'^(\s*)MODE\s*=\s*"[^"]*"\s*(?:#.*)?$', re.MULTILINE)
+
+
+def _apply_mode(code: str, mode: str) -> str:
+    """Replace the MODE assignment in a scenario script with the chosen mode."""
+    match = _MODE_ASSIGN.search(code)
+    if not match:
+        return code
+    indent = match.group(1)
+    return _MODE_ASSIGN.sub(f'{indent}MODE = "{mode}"', code, count=1)
+
 
 @router.post("/run/{scenario_id}", response_model=RunResult)
 def run_scenario(scenario_id: str, request: RunRequest | None = None) -> RunResult:
@@ -15,6 +28,14 @@ def run_scenario(scenario_id: str, request: RunRequest | None = None) -> RunResu
         raise HTTPException(status_code=404, detail=f"Scenario '{scenario_id}' not found")
 
     code = request.code if request and request.code else scenario.code
+
+    if request and request.mode:
+        if request.mode not in scenario.modes:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Invalid mode '{request.mode}'. Valid modes: {', '.join(scenario.modes)}.",
+            )
+        code = _apply_mode(code, request.mode)
 
     if request and request.code and not settings.allow_code_edit:
         raise HTTPException(
