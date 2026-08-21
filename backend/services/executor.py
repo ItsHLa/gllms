@@ -22,6 +22,10 @@ def run_python_code(code: str, scenario_id: str, timeout: int | None = None) -> 
 
         env = os.environ.copy()
         env["PYTHONPATH"] = str(ROOT_DIR) + os.pathsep + env.get("PYTHONPATH", "")
+        # Force UTF-8 output in the child so scenario scripts can print
+        # non-ASCII symbols even on Windows consoles that default to a
+        # non-UTF-8 code page (e.g. cp1256).
+        env["PYTHONIOENCODING"] = "utf-8"
 
         started = time.perf_counter()
         try:
@@ -29,6 +33,8 @@ def run_python_code(code: str, scenario_id: str, timeout: int | None = None) -> 
                 [sys.executable, tmp_path],
                 capture_output=True,
                 text=True,
+                encoding="utf-8",
+                errors="replace",
                 timeout=timeout,
                 cwd=ROOT_DIR,
                 env=env,

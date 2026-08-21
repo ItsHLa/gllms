@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LLM Attack Lab</title>
-  <link rel="stylesheet" href="/static/styles/main.css" />
+  <link rel="stylesheet" href="/static/styles/main.css?v=10" />
 </head>
 <body>
   <header class="topbar">
@@ -115,33 +115,115 @@
             </div>
             <p class="try-hint">The attacker prompt is shown below. Pick a mode and press Run to send it to the assistant.</p>
 
-            <div class="editor editor--readonly">
-              <div class="editor-head">
-                <span class="editor-head-label">Attacker Prompt</span>
-                <button class="editor-copy" @click="copyPrompt">Copy</button>
+            <!-- Prompt box -->
+            <div class="term-box">
+              <div class="term-topbar">
+                <span class="term-dot term-dot-r"></span>
+                <span class="term-dot term-dot-y"></span>
+                <span class="term-dot term-dot-g"></span>
+                <span class="term-title">Attacker Prompt</span>
+                <button class="editor-copy" @click="copyPrompt" style="margin-left:auto;">Copy</button>
               </div>
-              <pre class="editor-prompt">{{ scenario.attacker_prompt }}</pre>
+              <pre class="term-prompt">{{ scenario.attacker_prompt }}</pre>
             </div>
 
-            <div class="expected" v-if="scenario.expected_output">
-              <h3>What to expect</h3>
-              <p>{{ scenario.expected_output }}</p>
-            </div>
-
-            <div class="output" :class="{ 'has-result': result || errorMessage }">
-              <template v-if="result">
-                <div class="output-bar">
-                  <span class="output-status"
-                        :class="{ ok: result.exit_code === 0 && !result.timed_out, err: result.exit_code !== 0 || result.timed_out }">
-                    {{ result.exit_code === 0 && !result.timed_out ? 'Success' : 'Failed' }}
-                  </span>
-                  <span class="output-time">{{ result.duration_ms }} ms</span>
+            <!-- Results row: metrics sidebar + output terminal -->
+            <div class="results-row" v-if="result || errorMessage">
+              <!-- Left: metrics sidebar -->
+              <div class="metrics-panel" :class="{ 'is-error': result && (result.exit_code !== 0 || result.timed_out) }">
+                <div class="term-topbar">
+                  <span class="term-dot term-dot-r"></span>
+                  <span class="term-dot term-dot-y"></span>
+                  <span class="term-dot term-dot-g"></span>
+                  <span class="term-title">Metrics</span>
                 </div>
-                <pre v-if="result.stdout" class="output-stdout">{{ result.stdout }}</pre>
-                <pre v-if="result.stderr" class="output-stderr">{{ result.stderr }}</pre>
-              </template>
-              <p v-else-if="errorMessage" class="output-error">{{ errorMessage }}</p>
-              <p v-else class="output-placeholder">Run the script to see its output here.</p>
+                <div class="metrics-body">
+                  <template v-if="result && parsed.metrics.mode">
+                    <div class="metric-group">
+                      <div class="metric-label">Execution Mode</div>
+                      <div class="metric-value" :class="'metric-mode-' + parsed.metrics.mode.toLowerCase()">{{ parsed.metrics.mode }}</div>
+                    </div>
+                    <div class="metric-group">
+                      <div class="metric-label">Injection Detected</div>
+                      <div class="metric-value" :class="parsed.metrics.injectionDetected === 'Yes' ? 'metric-warn' : 'metric-ok'">{{ parsed.metrics.injectionDetected }}</div>
+                    </div>
+                    <div class="metric-group" v-if="parsed.metrics.attackType">
+                      <div class="metric-label">Attack Type</div>
+                      <div class="metric-value metric-dim">{{ parsed.metrics.attackType }}</div>
+                    </div>
+                    <div class="metric-group" v-if="parsed.metrics.source">
+                      <div class="metric-label">Source</div>
+                      <div class="metric-value metric-dim">{{ parsed.metrics.source }}</div>
+                    </div>
+                    <div class="metric-group" v-if="parsed.metrics.risk">
+                      <div class="metric-label">Risk</div>
+                      <div class="metric-value metric-dim">{{ parsed.metrics.risk }}</div>
+                    </div>
+                    <div class="metric-sep"></div>
+                    <div class="metric-group">
+                      <div class="metric-label">LLM Followed</div>
+                      <div class="metric-value" :class="parsed.metrics.llmFollowed === 'YES' ? 'metric-warn' : 'metric-ok'">{{ parsed.metrics.llmFollowed }}</div>
+                    </div>
+                    <div class="metric-group">
+                      <div class="metric-label">System Disclosed</div>
+                      <div class="metric-value" :class="parsed.metrics.systemDisclosed === 'YES' ? 'metric-warn' : 'metric-ok'">{{ parsed.metrics.systemDisclosed }}</div>
+                    </div>
+                    <div class="metric-sep"></div>
+                    <div class="metric-group">
+                      <div class="metric-label">Result</div>
+                      <div class="metric-value" :class="{
+                        'metric-attack': parsed.metrics.resultStatus === 'ATTACK SUCCESSFUL',
+                        'metric-ok': parsed.metrics.resultStatus === 'ATTACK MITIGATED',
+                        'metric-warn': parsed.metrics.resultStatus !== 'ATTACK SUCCESSFUL' && parsed.metrics.resultStatus !== 'ATTACK MITIGATED'
+                      }">{{ parsed.metrics.resultStatus }}</div>
+                    </div>
+                    <div class="metric-group" v-if="parsed.metrics.retrievedDocs > 0">
+                      <div class="metric-label">Retrieved Docs</div>
+                      <div class="metric-value metric-dim">{{ parsed.metrics.retrievedDocs }}</div>
+                    </div>
+                  </template>
+                  <div v-if="result && !parsed.metrics.mode && errorMessage" class="metrics-error">{{ errorMessage }}</div>
+                  <div v-else-if="result && !parsed.metrics.mode && result.exit_code !== 0" class="metrics-error">
+                    Script failed (exit code {{ result.exit_code }})
+                  </div>
+                  <div v-else-if="result && !parsed.metrics.mode && result.timed_out" class="metrics-error">
+                    Script timed out
+                  </div>
+                  <div v-else-if="errorMessage" class="metrics-error">{{ errorMessage }}</div>
+                  <div class="metrics-cursor" v-if="result && parsed.metrics.mode"></div>
+                </div>
+              </div>
+
+              <!-- Right: output terminal (full raw output) -->
+              <div class="term-box term-box-output" :class="{ 'has-result': result || errorMessage, 'is-error': result && (result.exit_code !== 0 || result.timed_out) }">
+                <div class="term-topbar">
+                  <span class="term-dot term-dot-r"></span>
+                  <span class="term-dot term-dot-y"></span>
+                  <span class="term-dot term-dot-g"></span>
+                  <span class="term-title">Output</span>
+                  <template v-if="result">
+                    <span class="output-status"
+                          :class="{ ok: result.exit_code === 0 && !result.timed_out, err: result.exit_code !== 0 || result.timed_out }">
+                      {{ result.exit_code === 0 && !result.timed_out ? '\u25CF OK' : '\u25CF FAILED' }}
+                    </span>
+                    <span class="output-time">{{ result.duration_ms }}ms</span>
+                  </template>
+                </div>
+                <div class="term-body">
+                  <template v-if="result">
+                    <!-- Failure banner -->
+                    <pre v-if="result.exit_code !== 0 || result.timed_out" class="output-fail-banner">{{ result.timed_out ? 'TIMEOUT: Script exceeded time limit' : 'ERROR: Script exited with code ' + result.exit_code }}</pre>
+                    <!-- Stdout -->
+                    <pre v-if="result.stdout && result.stdout.trim()" class="output-stdout" v-html="highlightOutput(result.stdout)"></pre>
+                    <!-- Stderr -->
+                    <pre v-if="result.stderr && result.stderr.trim()" class="output-stderr">{{ result.stderr }}</pre>
+                    <!-- Empty state -->
+                    <p v-if="!result.stdout?.trim() && !result.stderr?.trim()" class="output-placeholder">No output captured.</p>
+                  </template>
+                  <p v-else-if="errorMessage" class="output-error">{{ errorMessage }}</p>
+                  <p v-else class="output-placeholder">\u25B8 Run the script to see its output here.</p>
+                </div>
+              </div>
             </div>
           </section>
         </div>
@@ -155,6 +237,6 @@
   <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
   <script src="https://unpkg.com/marked@15.0.0/marked.min.js"></script>
   <script src="/static/scripts/api.js?v=2"></script>
-  <script src="/static/scripts/app.js?v=2"></script>
+  <script src="/static/scripts/app.js?v=5"></script>
 </body>
 </html>
