@@ -3,13 +3,12 @@
 Documents are upserted into the existing Pinecone index keyed by stable ids so
 ingestion is idempotent. A process-level flag avoids re-uploading per request.
 
-The poisoned document is stored AS-IS — the malicious instruction is never
-removed, sanitized, or filtered before retrieval, because the experiment is to
-show it travelling through the RAG pipeline as retrieved data.
+Ingestion is resilient: ids already stored in the index are never re-embedded,
+and the embedding endpoint is bounded by a hard timeout so a slow cold start
+cannot freeze a scenario run.
 """
 
-from langchain_core.documents import Document
-
+from backend.scenarios._rag_resilience import ensure_ingested as _ensure_ingested
 from backend.scenarios.cases.indirect_prompt_injection_success.documents import build_documents
 
 _ingested = False
@@ -20,7 +19,5 @@ def ensure_ingested(vectorstore) -> None:
     global _ingested
     if _ingested:
         return
-    documents: list[Document] = build_documents()
-    ids = [d.metadata["doc_id"] for d in documents]
-    vectorstore.vectorstore.add_documents(documents, ids=ids)
+    _ensure_ingested(vectorstore, build_documents())
     _ingested = True

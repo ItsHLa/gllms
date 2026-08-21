@@ -11,6 +11,7 @@ Flow:
 
 from langgraph.checkpoint.memory import InMemorySaver
 
+from backend.scenarios._rag_resilience import safe_retrieve
 from backend.scenarios.cases.indirect_prompt_injection import detection, documents, ingest, prompts
 from src.agent import Agent
 from src.llm import LLMFactory
@@ -41,8 +42,7 @@ def _build_agent(system_prompt: str) -> Agent:
 
 
 def _retrieve(vectorstore: RAGVectorStore, user_query: str) -> list[dict]:
-    retriever = vectorstore.vectorstore.as_retriever(search_kwargs={"k": TOP_K})
-    docs = retriever.invoke(user_query)
+    docs = safe_retrieve(vectorstore, user_query, documents.build_documents(), TOP_K)
     seen = set()
     unique = []
     for d in docs:
