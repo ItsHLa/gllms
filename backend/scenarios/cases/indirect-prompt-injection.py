@@ -10,8 +10,14 @@ MODE = "protected"   -> the trust boundary keeps the document as data
 import sys
 from pathlib import Path
 
-# Add project root to sys.path if running as a standalone script
-ROOT = Path(__file__).resolve().parents[3]
+# Add project root to sys.path if running as a standalone script.
+# When run through the web executor the code lives in a shallow temp dir
+# (e.g. /tmp on Linux), where parents[3] does not exist; imports then
+# resolve via PYTHONPATH, which the executor sets to the real project root.
+try:
+    ROOT = Path(__file__).resolve().parents[3]
+except IndexError:
+    ROOT = Path.cwd()
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
