@@ -38,7 +38,9 @@ cffi==2.1.0 ; platform_python_implementation != 'PyPy'
 charset-normalizer==3.4.9
     # via requests
 click==8.4.2
-    # via uvicorn
+    # via
+    #   huggingface-hub
+    #   uvicorn
 colorama==0.4.6 ; sys_platform == 'win32'
     # via
     #   click
@@ -54,12 +56,16 @@ docstring-parser==0.18.0
     # via google-cloud-aiplatform
 fastapi==0.141.1
     # via langchain-tutorial
+filelock==3.32.3
+    # via huggingface-hub
 filetype==1.2.0
     # via langchain-google-genai
 frozenlist==1.8.0
     # via
     #   aiohttp
     #   aiosignal
+fsspec==2026.7.0
+    # via huggingface-hub
 google-api-core==2.33.0
     # via
     #   google-cloud-aiplatform
@@ -127,6 +133,8 @@ h11==0.16.0
     # via
     #   httpcore
     #   uvicorn
+hf-xet==1.6.0 ; platform_machine == 'AMD64' or platform_machine == 'aarch64' or platform_machine == 'amd64' or platform_machine == 'arm64' or platform_machine == 'x86_64'
+    # via huggingface-hub
 httpcore==1.0.9
     # via httpx
 httptools==0.8.0
@@ -134,6 +142,7 @@ httptools==0.8.0
 httpx==0.28.1
     # via
     #   google-genai
+    #   huggingface-hub
     #   langchain-google-vertexai
     #   langchain-pinecone
     #   langgraph-sdk
@@ -141,6 +150,10 @@ httpx==0.28.1
     #   openai
 httpx-sse==0.4.3
     # via langchain-google-vertexai
+huggingface-hub==1.28.0
+    # via
+    #   langchain-huggingface
+    #   tokenizers
 idna==3.18
     # via
     #   anyio
@@ -160,6 +173,7 @@ langchain-core==1.5.3
     #   langchain
     #   langchain-google-genai
     #   langchain-google-vertexai
+    #   langchain-huggingface
     #   langchain-openai
     #   langchain-pinecone
     #   langgraph
@@ -170,6 +184,8 @@ langchain-google-genai==4.3.2
     # via langchain
 langchain-google-vertexai==3.2.4
     # via langchain-tutorial
+langchain-huggingface==1.2.2
+    # via langchain-tutorial
 langchain-openai==1.4.3
     # via langchain-pinecone
 langchain-pinecone==0.2.13
@@ -179,7 +195,9 @@ langchain-protocol==0.0.18
     #   langchain-core
     #   langgraph-sdk
 langgraph==1.2.10
-    # via langchain
+    # via
+    #   langchain
+    #   langchain-tutorial
 langgraph-checkpoint==4.1.1
     # via
     #   langgraph
@@ -213,6 +231,7 @@ packaging==24.2
     # via
     #   google-cloud-aiplatform
     #   google-cloud-bigquery
+    #   huggingface-hub
     #   langchain-core
     #   langsmith
     #   pinecone-plugin-assistant
@@ -279,6 +298,7 @@ python-dotenv==1.2.2
     #   uvicorn
 pyyaml==6.0.3
     # via
+    #   huggingface-hub
     #   langchain-core
     #   uvicorn
 regex==2026.7.19
@@ -314,8 +334,12 @@ tenacity==9.1.4
     #   langchain-core
 tiktoken==0.13.0
     # via langchain-openai
+tokenizers==0.23.1
+    # via langchain-huggingface
 tqdm==4.70.0
-    # via openai
+    # via
+    #   huggingface-hub
+    #   openai
 typing-extensions==4.16.0
     # via
     #   aiohttp
@@ -325,6 +349,7 @@ typing-extensions==4.16.0
     #   google-cloud-aiplatform
     #   google-genai
     #   grpcio
+    #   huggingface-hub
     #   langchain-core
     #   langchain-protocol
     #   langsmith
