@@ -1,25 +1,31 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LLM Attack Lab</title>
-  <link rel="stylesheet" href="/static/styles/main.css?v=10" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2305090B'/><path d='M8 22V10h12v3H11v6h6v-2h-4v-3h7v8z' fill='%2346F08B'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles/main.css?v=17" />
 </head>
 <body>
+  <div id="app">
   <header class="topbar">
     <a class="brand" href="/">
-      <span class="brand-mark">&#9881;</span>
-      <span class="brand-name">LLM Attack Lab</span>
+      <span class="brand-mark">&gt;_</span>
+      <span class="brand-name">GLLMS <em>Attack Lab</em></span>
     </a>
     <nav class="topbar-nav">
-      <span class="topbar-hint">Learn the OWASP Top 10 LLM attacks by example</span>
+      <span class="topbar-hint">{{ t('hint') }}</span>
+      <button class="lang-switch" type="button" @click="toggleLang">{{ t('langOther') }}</button>
     </nav>
   </header>
 
   <div class="layout" id="app">
     <aside class="sidebar">
-      <h2 class="sidebar-title">Scenarios</h2>
+      <h2 class="sidebar-title">{{ t('scenarios') }}</h2>
       <ul class="scenario-list">
         <li v-for="item in scenarios" :key="item.id">
           <button
@@ -34,6 +40,7 @@
       </ul>
     </aside>
 
+    <!-- Scenario -->
     <main class="content">
       <template v-if="scenario">
         <!-- Always-visible header -->
@@ -60,7 +67,7 @@
             aria-controls="panel-describe"
             @click="activeTab = 'describe'"
           >
-            <span class="tab-icon">&#128214;</span> Describe
+            <span class="tab-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span> {{ t('tabDescribe') }}
           </button>
           <button
             id="tab-try"
@@ -71,7 +78,7 @@
             aria-controls="panel-try"
             @click="activeTab = 'try'"
           >
-            <span class="tab-icon">&#9654;</span> Try It
+            <span class="tab-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg></span> {{ t('tabTry') }}
           </button>
         </div>
 
@@ -84,7 +91,7 @@
           :class="{ 'tab-panel--active': activeTab === 'describe' }"
         >
           <section class="article" v-if="scenario.article" v-html="renderedArticle"></section>
-          <div v-else class="empty" style="padding: 40px 0;">No article available for this scenario.</div>
+          <div v-else class="empty" style="padding: 40px 0;">{{ t('noArticle') }}</div>
         </div>
 
         <!-- Try It panel -->
@@ -97,10 +104,10 @@
         >
           <section class="try">
             <div class="try-header">
-              <h2>Try it yourself</h2>
+              <h2>{{ t('tryTitle') }}</h2>
               <div class="try-actions">
                 <label class="mode-select">
-                  <span class="mode-select-label">Mode</span>
+                  <span class="mode-select-label">{{ t('modeLabel') }}</span>
                   <select v-model="selectedMode" :disabled="running">
                     <option v-for="m in scenario.modes" :key="m" :value="m">
                       {{ m }}
@@ -108,12 +115,12 @@
                   </select>
                 </label>
                 <button class="btn btn-run" :disabled="running" @click="run">
-                  <span v-if="!running">Run &#9654;</span>
-                  <span v-else>Running...</span>
+                  <span v-if="!running"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="6 3 20 12 6 21 6 3"/></svg>{{ t('run') }}</span>
+                  <span v-else>{{ t('running') }}</span>
                 </button>
               </div>
             </div>
-            <p class="try-hint">The attacker prompt is shown below. Pick a mode and press Run to send it to the assistant.</p>
+            <p class="try-hint">{{ t('tryHint') }}</p>
 
             <!-- Prompt box -->
             <div class="term-box">
@@ -121,10 +128,24 @@
                 <span class="term-dot term-dot-r"></span>
                 <span class="term-dot term-dot-y"></span>
                 <span class="term-dot term-dot-g"></span>
-                <span class="term-title">Attacker Prompt</span>
-                <button class="editor-copy" @click="copyPrompt" style="margin-left:auto;">Copy</button>
+                <span class="term-title">{{ t('attackerPrompt') }}</span>
+                <button class="editor-copy" @click="copyPrompt" style="margin-left:auto;">{{ t('copy') }}</button>
               </div>
               <pre class="term-prompt">{{ scenario.attacker_prompt }}</pre>
+            </div>
+
+            <!-- System Prompt box -->
+            <div class="sysprompt-box" :class="'sysprompt-' + selectedMode">
+              <div class="sysprompt-header">
+                <span class="sysprompt-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg></span>
+                <span class="sysprompt-title">{{ sysPromptTitle }}</span>
+              </div>
+              <pre class="sysprompt-content">{{ currentSystemPrompt }}</pre>
+              <div v-if="currentModeNote" class="sysprompt-note" :class="'note-' + selectedMode">
+                <svg v-if="selectedMode === 'vulnerable'" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                <svg v-else class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>{{ currentModeNote }}</span>
+              </div>
             </div>
 
             <!-- Results row: metrics sidebar + output terminal -->
@@ -135,42 +156,69 @@
                   <span class="term-dot term-dot-r"></span>
                   <span class="term-dot term-dot-y"></span>
                   <span class="term-dot term-dot-g"></span>
-                  <span class="term-title">Metrics</span>
+                  <span class="term-title">{{ t('metricsTitle') }}</span>
                 </div>
                 <div class="metrics-body">
                   <template v-if="result && parsed.metrics.mode">
                     <div class="metric-group">
-                      <div class="metric-label">Execution Mode</div>
+                      <div class="metric-label">{{ t('executionMode') }}</div>
                       <div class="metric-value" :class="'metric-mode-' + parsed.metrics.mode.toLowerCase()">{{ parsed.metrics.mode }}</div>
                     </div>
                     <div class="metric-group">
-                      <div class="metric-label">Injection Detected</div>
+                      <div class="metric-label">{{ t('injectionDetected') }}</div>
                       <div class="metric-value" :class="parsed.metrics.injectionDetected === 'Yes' ? 'metric-warn' : 'metric-ok'">{{ parsed.metrics.injectionDetected }}</div>
                     </div>
                     <div class="metric-group" v-if="parsed.metrics.attackType">
-                      <div class="metric-label">Attack Type</div>
+                      <div class="metric-label">{{ t('attackType') }}</div>
                       <div class="metric-value metric-dim">{{ parsed.metrics.attackType }}</div>
                     </div>
                     <div class="metric-group" v-if="parsed.metrics.source">
-                      <div class="metric-label">Source</div>
+                      <div class="metric-label">{{ t('source') }}</div>
                       <div class="metric-value metric-dim">{{ parsed.metrics.source }}</div>
                     </div>
                     <div class="metric-group" v-if="parsed.metrics.risk">
-                      <div class="metric-label">Risk</div>
+                      <div class="metric-label">{{ t('risk') }}</div>
                       <div class="metric-value metric-dim">{{ parsed.metrics.risk }}</div>
                     </div>
-                    <div class="metric-sep"></div>
-                    <div class="metric-group">
-                      <div class="metric-label">LLM Followed</div>
+                    <div class="metric-group" v-if="parsed.metrics.llmFollowed">
+                      <div class="metric-label">{{ t('llmFollowed') }}</div>
                       <div class="metric-value" :class="parsed.metrics.llmFollowed === 'YES' ? 'metric-warn' : 'metric-ok'">{{ parsed.metrics.llmFollowed }}</div>
                     </div>
-                    <div class="metric-group">
-                      <div class="metric-label">System Disclosed</div>
+                    <div class="metric-group" v-if="parsed.metrics.systemDisclosed">
+                      <div class="metric-label">{{ t('systemDisclosed') }}</div>
                       <div class="metric-value" :class="parsed.metrics.systemDisclosed === 'YES' ? 'metric-warn' : 'metric-ok'">{{ parsed.metrics.systemDisclosed }}</div>
+                    </div>
+                    <!-- SQL-specific metrics -->
+                    <div class="metric-group" v-if="parsed.metrics.sqlExecutionDisabled">
+                      <div class="metric-label">{{ t('sqlExecution') }}</div>
+                      <div class="metric-value metric-ok">DISABLED</div>
+                    </div>
+                    <div class="metric-group" v-if="parsed.metrics.dangerousSql">
+                      <div class="metric-label">{{ t('dangerousSql') }}</div>
+                      <div class="metric-value" :class="parsed.metrics.dangerousSql === 'YES' ? 'metric-warn' : 'metric-ok'">{{ parsed.metrics.dangerousSql }}</div>
+                    </div>
+                    <div class="metric-group" v-if="parsed.metrics.sqlValidation">
+                      <div class="metric-label">{{ t('sqlValidation') }}</div>
+                      <div class="metric-value metric-dim">{{ parsed.metrics.sqlValidation }}</div>
+                    </div>
+                    <div class="metric-group" v-if="parsed.metrics.dangerousOp">
+                      <div class="metric-label">{{ t('dangerousOp') }}</div>
+                      <div class="metric-value" :class="parsed.metrics.dangerousOp === 'YES' ? 'metric-warn' : 'metric-ok'">{{ parsed.metrics.dangerousOp }}</div>
+                    </div>
+                    <div class="metric-group" v-if="parsed.metrics.generatedSql">
+                      <div class="metric-label">{{ t('generatedSql') }}</div>
+                      <div class="metric-value metric-dim" style="font-family: monospace; font-size: 0.72rem;">{{ parsed.metrics.generatedSql }}</div>
+                    </div>
+                    <!-- System Prompt (collapsible) -->
+                    <div class="metric-group" v-if="parsed.metrics.systemPrompt">
+                      <details class="sysprompt-details">
+                        <summary class="metric-label" style="cursor:pointer; user-select:none;">{{ t('sysPromptExpand') }}</summary>
+                        <pre class="sysprompt-pre">{{ parsed.metrics.systemPrompt }}</pre>
+                      </details>
                     </div>
                     <div class="metric-sep"></div>
                     <div class="metric-group">
-                      <div class="metric-label">Result</div>
+                      <div class="metric-label">{{ t('resultLabel') }}</div>
                       <div class="metric-value" :class="{
                         'metric-attack': parsed.metrics.resultStatus === 'ATTACK SUCCESSFUL',
                         'metric-ok': parsed.metrics.resultStatus === 'ATTACK MITIGATED',
@@ -178,7 +226,7 @@
                       }">{{ parsed.metrics.resultStatus }}</div>
                     </div>
                     <div class="metric-group" v-if="parsed.metrics.retrievedDocs > 0">
-                      <div class="metric-label">Retrieved Docs</div>
+                      <div class="metric-label">{{ t('retrievedDocs') }}</div>
                       <div class="metric-value metric-dim">{{ parsed.metrics.retrievedDocs }}</div>
                     </div>
                   </template>
@@ -200,11 +248,13 @@
                   <span class="term-dot term-dot-r"></span>
                   <span class="term-dot term-dot-y"></span>
                   <span class="term-dot term-dot-g"></span>
-                  <span class="term-title">Output</span>
+                  <span class="term-title">{{ t('outputTitle') }}</span>
                   <template v-if="result">
                     <span class="output-status"
                           :class="{ ok: result.exit_code === 0 && !result.timed_out, err: result.exit_code !== 0 || result.timed_out }">
-                      {{ result.exit_code === 0 && !result.timed_out ? '\u25CF OK' : '\u25CF FAILED' }}
+                      <svg v-if="result.exit_code === 0 && !result.timed_out" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      <svg v-else class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                      {{ result.exit_code === 0 && !result.timed_out ? t('ok') : t('failed') }}
                     </span>
                     <span class="output-time">{{ result.duration_ms }}ms</span>
                   </template>
@@ -212,16 +262,16 @@
                 <div class="term-body">
                   <template v-if="result">
                     <!-- Failure banner -->
-                    <pre v-if="result.exit_code !== 0 || result.timed_out" class="output-fail-banner">{{ result.timed_out ? 'TIMEOUT: Script exceeded time limit' : 'ERROR: Script exited with code ' + result.exit_code }}</pre>
+                    <pre v-if="result.exit_code !== 0 || result.timed_out" class="output-fail-banner">{{ result.timed_out ? t('timeoutBanner') : t('errorBanner', { code: result.exit_code }) }}</pre>
                     <!-- Stdout -->
                     <pre v-if="result.stdout && result.stdout.trim()" class="output-stdout" v-html="highlightOutput(result.stdout)"></pre>
                     <!-- Stderr -->
                     <pre v-if="result.stderr && result.stderr.trim()" class="output-stderr">{{ result.stderr }}</pre>
                     <!-- Empty state -->
-                    <p v-if="!result.stdout?.trim() && !result.stderr?.trim()" class="output-placeholder">No output captured.</p>
+                    <p v-if="!result.stdout?.trim() && !result.stderr?.trim()" class="output-placeholder">{{ t('noOutput') }}</p>
                   </template>
                   <p v-else-if="errorMessage" class="output-error">{{ errorMessage }}</p>
-                  <p v-else class="output-placeholder">\u25B8 Run the script to see its output here.</p>
+                  <p v-else class="output-placeholder">{{ t('outputPlaceholder') }}</p>
                 </div>
               </div>
             </div>
@@ -229,14 +279,15 @@
         </div>
       </template>
 
-      <div v-else-if="loading" class="empty">Loading scenarios...</div>
-      <div v-else class="empty">Select a scenario from the sidebar to begin.</div>
+      <div v-else-if="loading" class="empty">{{ t('loading') }}</div>
+      <div v-else class="empty">{{ t('emptySelect') }}</div>
     </main>
+  </div>
   </div>
 
   <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
   <script src="https://unpkg.com/marked@15.0.0/marked.min.js"></script>
-  <script src="/static/scripts/api.js?v=2"></script>
-  <script src="/static/scripts/app.js?v=5"></script>
+  <script src="/static/scripts/api.js?v=3"></script>
+  <script src="/static/scripts/app.js?v=14"></script>
 </body>
 </html>
