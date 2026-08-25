@@ -1,7 +1,7 @@
 [project]
-name = "langchain-tutorial"
+name = "gllms"
 version = "0.1.0"
-description = "Add your description here"
+description = "Interactive LLM Attack & Defense Laboratory"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [

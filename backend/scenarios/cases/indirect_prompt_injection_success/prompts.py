@@ -84,3 +84,10 @@ def build_prompts(user_query: str, docs: list[dict], mode: str) -> tuple[str, st
             f"{_SECURITY_RULE}"
         )
     return system, user
+
+
+SYSTEM_PROMPTS = {
+    "normal": _NORMAL_SYSTEM,
+    "vulnerable": _VULNERABLE_SYSTEM,
+    "protected": _PROTECTED_SYSTEM,
+}

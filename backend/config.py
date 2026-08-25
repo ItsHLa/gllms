@@ -5,6 +5,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 ROOT_DIR = Path(__file__).resolve().parent.parent
 BACKEND_DIR = Path(__file__).resolve().parent
 FRONTEND_DIR = ROOT_DIR / "frontend"
+LANDING_DIR = ROOT_DIR / "scrollcraft" / "builds" / "terminal-descent"
 CASES_DIR = BACKEND_DIR / "scenarios" / "cases"
 
 

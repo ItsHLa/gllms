@@ -1,0 +1,4075 @@
+{
+  "doc": {
+    "height": 6618,
+    "vh": 812,
+    "acts": [],
+    "world": {
+      "seam": 0.24,
+      "segs": [
+        {
+          "w": 1.1,
+          "linger": 0,
+          "label": "Query"
+        },
+        {
+          "w": 1.1,
+          "linger": 0,
+          "label": "Embed"
+        },
+        {
+          "w": 1.15,
+          "linger": 0,
+          "label": "Retrieve"
+        },
+        {
+          "w": 1.6,
+          "linger": 0.45,
+          "label": "Poison"
+        },
+        {
+          "w": 1.1,
+          "linger": 0,
+          "label": "Boundary"
+        },
+        {
+          "w": 1.1,
+          "linger": 0,
+          "label": "Run"
+        }
+      ]
+    }
+  },
+  "report": [
+    {
+      "i": 0,
+      "y": 0,
+      "pct": 0,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "OWASP LLM TOP 10 · HANDS-ON LAB Your AI ",
+          "dir": "light-on-dark",
+          "worst": 11.72,
+          "mean": 16.32
+        }
+      ],
+      "cues": [
+        {
+          "t": "OWASP LLM TOP 10 · HANDS-ON LAB Your AI reads ",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "0:0:0:idle"
+      ],
+      "customHold": false,
+      "seg": 0,
+      "segp": 0,
+      "bg": "#05090B"
+    },
+    {
+      "i": 1,
+      "y": 18,
+      "pct": 0,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "OWASP LLM TOP 10 · HANDS-ON LAB Your AI ",
+          "dir": "light-on-dark",
+          "worst": 10.75,
+          "mean": 16.28
+        }
+      ],
+      "cues": [
+        {
+          "t": "OWASP LLM TOP 10 · HANDS-ON LAB Your AI reads ",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "0:2:1:idle"
+      ],
+      "customHold": false,
+      "seg": 0,
+      "segp": 0.0202,
+      "bg": "#05090B"
+    },
+    {
+      "i": 2,
+      "y": 189,
+      "pct": 3,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "OWASP LLM TOP 10 · HANDS-ON LAB Your AI ",
+          "dir": "light-on-dark",
+          "worst": 13.01,
+          "mean": 16.31
+        }
+      ],
+      "cues": [
+        {
+          "t": "OWASP LLM TOP 10 · HANDS-ON LAB Your AI reads ",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "0:21:9:idle"
+      ],
+      "customHold": false,
+      "seg": 0,
+      "segp": 0.2116,
+      "bg": "#05090B"
+    },
+    {
+      "i": 3,
+      "y": 361,
+      "pct": 6,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "OWASP LLM TOP 10 · HANDS-ON LAB Your AI reads ",
+          "o": 0.55
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "0:40:18:query"
+      ],
+      "customHold": false,
+      "seg": 0,
+      "segp": 0.4042,
+      "bg": "#05090B"
+    },
+    {
+      "i": 4,
+      "y": 532,
+      "pct": 9,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "0:60:26:query"
+      ],
+      "customHold": false,
+      "seg": 0,
+      "segp": 0.5956,
+      "bg": "#05090B"
+    },
+    {
+      "i": 5,
+      "y": 704,
+      "pct": 12,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "0:79:34:query"
+      ],
+      "customHold": false,
+      "seg": 0,
+      "segp": 0.7882,
+      "bg": "#05090B"
+    },
+    {
+      "i": 6,
+      "y": 796,
+      "pct": 14,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "0:89:39:query"
+      ],
+      "customHold": false,
+      "seg": 1,
+      "segp": 0,
+      "bg": "#05090B"
+    },
+    {
+      "i": 7,
+      "y": 854,
+      "pct": 15,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0.215,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "1:0:41:query"
+      ],
+      "customHold": false,
+      "seg": 1,
+      "segp": 0,
+      "bg": "#05090B"
+    },
+    {
+      "i": 8,
+      "y": 875,
+      "pct": 15,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0.362,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "1:0:43:query"
+      ],
+      "customHold": false,
+      "seg": 1,
+      "segp": 0,
+      "bg": "#05090B"
+    },
+    {
+      "i": 9,
+      "y": 911,
+      "pct": 16,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0.635,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "1:2:44:query"
+      ],
+      "customHold": false,
+      "seg": 1,
+      "segp": 0.0199,
+      "bg": "#05090B"
+    },
+    {
+      "i": 10,
+      "y": 932,
+      "pct": 16,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0.783,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "1:4:45:query"
+      ],
+      "customHold": false,
+      "seg": 1,
+      "segp": 0.0434,
+      "bg": "#05090B"
+    },
+    {
+      "i": 11,
+      "y": 991,
+      "pct": 17,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "Every retrieved document is untrusted input. Y",
+          "o": 0.06
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "1:11:48:search"
+      ],
+      "customHold": false,
+      "seg": 1,
+      "segp": 0.1095,
+      "bg": "#05090B"
+    },
+    {
+      "i": 12,
+      "y": 1083,
+      "pct": 19,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "Every retrieved document is untrusted input. Y",
+          "o": 0.58
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "1:21:53:search"
+      ],
+      "customHold": false,
+      "seg": 1,
+      "segp": 0.2125,
+      "bg": "#05090B"
+    },
+    {
+      "i": 13,
+      "y": 1254,
+      "pct": 22,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "Every retrieved document is untrusted in",
+          "dir": "light-on-dark",
+          "worst": 15.43,
+          "mean": 16.54
+        }
+      ],
+      "cues": [
+        {
+          "t": "Every retrieved document is untrusted input. Y",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "1:40:61:search"
+      ],
+      "customHold": false,
+      "seg": 1,
+      "segp": 0.4039,
+      "bg": "#05090B"
+    },
+    {
+      "i": 14,
+      "y": 1426,
+      "pct": 25,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "Every retrieved document is untrusted in",
+          "dir": "light-on-dark",
+          "worst": 15.21,
+          "mean": 16.55
+        }
+      ],
+      "cues": [
+        {
+          "t": "Every retrieved document is untrusted input. Y",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "1:60:69:search"
+      ],
+      "customHold": false,
+      "seg": 1,
+      "segp": 0.5965,
+      "bg": "#05090B"
+    },
+    {
+      "i": 15,
+      "y": 1597,
+      "pct": 28,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "Every retrieved document is untrusted input. Y",
+          "o": 0.52
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "1:79:78:search"
+      ],
+      "customHold": false,
+      "seg": 1,
+      "segp": 0.788,
+      "bg": "#05090B"
+    },
+    {
+      "i": 16,
+      "y": 1689,
+      "pct": 29,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "Every retrieved document is untrusted input. Y",
+          "o": 0.03
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "1:89:82:search"
+      ],
+      "customHold": false,
+      "seg": 2,
+      "segp": 0,
+      "bg": "#05090B"
+    },
+    {
+      "i": 17,
+      "y": 1747,
+      "pct": 30,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0.213,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "2:0:85:search"
+      ],
+      "customHold": false,
+      "seg": 2,
+      "segp": 0,
+      "bg": "#05090B"
+    },
+    {
+      "i": 18,
+      "y": 1769,
+      "pct": 30,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0.367,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "2:0:86:search"
+      ],
+      "customHold": false,
+      "seg": 2,
+      "segp": 0,
+      "bg": "#05090B"
+    },
+    {
+      "i": 19,
+      "y": 1805,
+      "pct": 31,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0.641,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "2:2:88:search"
+      ],
+      "customHold": false,
+      "seg": 2,
+      "segp": 0.0199,
+      "bg": "#05090B"
+    },
+    {
+      "i": 20,
+      "y": 1825,
+      "pct": 31,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0.782,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "2:4:89:search"
+      ],
+      "customHold": false,
+      "seg": 2,
+      "segp": 0.0413,
+      "bg": "#05090B"
+    },
+    {
+      "i": 21,
+      "y": 1884,
+      "pct": 32,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "Five documents came back. Four are policies. T",
+          "o": 0.04
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "2:10:92:search"
+      ],
+      "customHold": false,
+      "seg": 2,
+      "segp": 0.1045,
+      "bg": "#05090B"
+    },
+    {
+      "i": 22,
+      "y": 1984,
+      "pct": 34,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "Five documents came back. Four are policies. T",
+          "o": 0.65
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "2:21:96:docs"
+      ],
+      "customHold": false,
+      "seg": 2,
+      "segp": 0.2116,
+      "bg": "#05090B"
+    },
+    {
+      "i": 23,
+      "y": 2164,
+      "pct": 37,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "Five documents came back. Four are polic",
+          "dir": "light-on-dark",
+          "worst": 11.27,
+          "mean": 16.23
+        }
+      ],
+      "cues": [
+        {
+          "t": "Five documents came back. Four are policies. T",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "2:40:105:docs"
+      ],
+      "customHold": false,
+      "seg": 2,
+      "segp": 0.4044,
+      "bg": "#05090B"
+    },
+    {
+      "i": 24,
+      "y": 2343,
+      "pct": 40,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "Five documents came back. Four are polic",
+          "dir": "light-on-dark",
+          "worst": 10.04,
+          "mean": 16.39
+        }
+      ],
+      "cues": [
+        {
+          "t": "Five documents came back. Four are policies. T",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "2:60:114:docs"
+      ],
+      "customHold": false,
+      "seg": 2,
+      "segp": 0.5961,
+      "bg": "#05090B"
+    },
+    {
+      "i": 25,
+      "y": 2522,
+      "pct": 43,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "Five documents came back. Four are policies. T",
+          "o": 0.07
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "2:79:122:docs"
+      ],
+      "customHold": false,
+      "seg": 2,
+      "segp": 0.7877,
+      "bg": "#05090B"
+    },
+    {
+      "i": 26,
+      "y": 2623,
+      "pct": 45,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "One of them is lying.",
+          "o": 0.06
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "2:90:127:docs"
+      ],
+      "customHold": false,
+      "seg": 3,
+      "segp": 0,
+      "bg": "#05090B"
+    },
+    {
+      "i": 27,
+      "y": 2681,
+      "pct": 46,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "One of them is lying.",
+          "o": 0.29
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0.215,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "3:0:130:docs"
+      ],
+      "customHold": false,
+      "seg": 3,
+      "segp": 0,
+      "bg": "#05090B"
+    },
+    {
+      "i": 28,
+      "y": 2702,
+      "pct": 47,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "One of them is lying.",
+          "o": 0.41
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0.362,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "3:0:131:docs"
+      ],
+      "customHold": false,
+      "seg": 3,
+      "segp": 0,
+      "bg": "#05090B"
+    },
+    {
+      "i": 29,
+      "y": 2746,
+      "pct": 47,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "One of them is lying.",
+          "o": 0.65
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0.694,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "3:2:133:docs"
+      ],
+      "customHold": false,
+      "seg": 3,
+      "segp": 0.0199,
+      "bg": "#05090B"
+    },
+    {
+      "i": 30,
+      "y": 2759,
+      "pct": 48,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "One of them is lying.",
+          "o": 0.71
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0.783,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "3:3:134:docs"
+      ],
+      "customHold": false,
+      "seg": 3,
+      "segp": 0.0299,
+      "bg": "#05090B"
+    },
+    {
+      "i": 31,
+      "y": 2818,
+      "pct": 49,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "One of them is lying.",
+          "dir": "light-on-dark",
+          "worst": 11.65,
+          "mean": 16.01
+        }
+      ],
+      "cues": [
+        {
+          "t": "One of them is lying.",
+          "o": 0.95
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "3:8:137:docs"
+      ],
+      "customHold": false,
+      "seg": 3,
+      "segp": 0.0753,
+      "bg": "#05090B"
+    },
+    {
+      "i": 32,
+      "y": 2996,
+      "pct": 52,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "One of them is lying.",
+          "o": 0.73
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "3:21:146:docs"
+      ],
+      "customHold": false,
+      "seg": 3,
+      "segp": 0.2123,
+      "bg": "#05090B"
+    },
+    {
+      "i": 33,
+      "y": 3245,
+      "pct": 56,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "The model obeyed the document. No exploit code",
+          "o": 0.54
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "3:40:158:hijack"
+      ],
+      "customHold": false,
+      "seg": 3,
+      "segp": 0.4039,
+      "bg": "#05090B"
+    },
+    {
+      "i": 34,
+      "y": 3495,
+      "pct": 60,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "The model obeyed the document. No exploi",
+          "dir": "light-on-dark",
+          "worst": 8.58,
+          "mean": 14.87
+        }
+      ],
+      "cues": [
+        {
+          "t": "The model obeyed the document. No exploit code",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "3:60:170:hijack"
+      ],
+      "customHold": false,
+      "seg": 3,
+      "segp": 0.5964,
+      "bg": "#05090B"
+    },
+    {
+      "i": 35,
+      "y": 3744,
+      "pct": 64,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "The model obeyed the document. No exploit code",
+          "o": 0.38
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "3:79:182:hijack"
+      ],
+      "customHold": false,
+      "seg": 3,
+      "segp": 0.788,
+      "bg": "#05090B"
+    },
+    {
+      "i": 36,
+      "y": 3922,
+      "pct": 68,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "3:93:190:hijack"
+      ],
+      "customHold": false,
+      "seg": 4,
+      "segp": 0,
+      "bg": "#05090B"
+    },
+    {
+      "i": 37,
+      "y": 3980,
+      "pct": 69,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0.213,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "4:0:193:hijack"
+      ],
+      "customHold": false,
+      "seg": 4,
+      "segp": 0,
+      "bg": "#05090B"
+    },
+    {
+      "i": 38,
+      "y": 3993,
+      "pct": 69,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0.302,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "4:0:194:hijack"
+      ],
+      "customHold": false,
+      "seg": 4,
+      "segp": 0,
+      "bg": "#05090B"
+    },
+    {
+      "i": 39,
+      "y": 4037,
+      "pct": 70,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0.634,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "4:2:196:hijack"
+      ],
+      "customHold": false,
+      "seg": 4,
+      "segp": 0.0197,
+      "bg": "#05090B"
+    },
+    {
+      "i": 40,
+      "y": 4058,
+      "pct": 70,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0.782,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "4:4:197:hijack"
+      ],
+      "customHold": false,
+      "seg": 4,
+      "segp": 0.0432,
+      "bg": "#05090B"
+    },
+    {
+      "i": 41,
+      "y": 4117,
+      "pct": 71,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "Mark untrusted. Refuse to obey. s1’s protected",
+          "o": 0.02
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "4:11:200:hijack"
+      ],
+      "customHold": false,
+      "seg": 4,
+      "segp": 0.1093,
+      "bg": "#05090B"
+    },
+    {
+      "i": 42,
+      "y": 4209,
+      "pct": 72,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "Mark untrusted. Refuse to obey. s1’s protected",
+          "o": 0.4
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "4:21:204:guard"
+      ],
+      "customHold": false,
+      "seg": 4,
+      "segp": 0.2123,
+      "bg": "#05090B"
+    },
+    {
+      "i": 43,
+      "y": 4380,
+      "pct": 75,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "Mark untrusted. Refuse to obey. s1’s pro",
+          "dir": "light-on-dark",
+          "worst": 14.34,
+          "mean": 16.41
+        }
+      ],
+      "cues": [
+        {
+          "t": "Mark untrusted. Refuse to obey. s1’s protected",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "4:40:213:guard"
+      ],
+      "customHold": false,
+      "seg": 4,
+      "segp": 0.4037,
+      "bg": "#05090B"
+    },
+    {
+      "i": 44,
+      "y": 4552,
+      "pct": 78,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "Mark untrusted. Refuse to obey. s1’s pro",
+          "dir": "light-on-dark",
+          "worst": 14.34,
+          "mean": 16.4
+        }
+      ],
+      "cues": [
+        {
+          "t": "Mark untrusted. Refuse to obey. s1’s protected",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "4:60:221:guard"
+      ],
+      "customHold": false,
+      "seg": 4,
+      "segp": 0.5963,
+      "bg": "#05090B"
+    },
+    {
+      "i": 45,
+      "y": 4723,
+      "pct": 81,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "Mark untrusted. Refuse to obey. s1’s pro",
+          "dir": "light-on-dark",
+          "worst": 14.58,
+          "mean": 16.38
+        }
+      ],
+      "cues": [
+        {
+          "t": "Mark untrusted. Refuse to obey. s1’s protected",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "4:79:229:guard"
+      ],
+      "customHold": false,
+      "seg": 4,
+      "segp": 0.7877,
+      "bg": "#05090B"
+    },
+    {
+      "i": 46,
+      "y": 4815,
+      "pct": 83,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "Mark untrusted. Refuse to obey. s1’s protected",
+          "o": 0.73
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "4:89:234:guard"
+      ],
+      "customHold": false,
+      "seg": 4,
+      "segp": 0.8907,
+      "bg": "#05090B"
+    },
+    {
+      "i": 47,
+      "y": 4874,
+      "pct": 84,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "Mark untrusted. Refuse to obey. s1’s protected",
+          "o": 0.41
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0.218,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "5:0:237:guard"
+      ],
+      "customHold": false,
+      "seg": 5,
+      "segp": 0,
+      "bg": "#05090B"
+    },
+    {
+      "i": 48,
+      "y": 4895,
+      "pct": 84,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "Mark untrusted. Refuse to obey. s1’s protected",
+          "o": 0.3
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0.366,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "5:0:238:guard"
+      ],
+      "customHold": false,
+      "seg": 5,
+      "segp": 0,
+      "bg": "#05090B"
+    },
+    {
+      "i": 49,
+      "y": 4930,
+      "pct": 85,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "Mark untrusted. Refuse to obey. s1’s protected",
+          "o": 0.14
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0.633,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "5:2:239:guard"
+      ],
+      "customHold": false,
+      "seg": 5,
+      "segp": 0.0195,
+      "bg": "#05090B"
+    },
+    {
+      "i": 50,
+      "y": 4952,
+      "pct": 85,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "Mark untrusted. Refuse to obey. s1’s protected",
+          "o": 0.06
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 0.787,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "5:4:241:guard"
+      ],
+      "customHold": false,
+      "seg": 5,
+      "segp": 0.0441,
+      "bg": "#05090B"
+    },
+    {
+      "i": 51,
+      "y": 5010,
+      "pct": 86,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 1,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 1,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "5:11:243:guard"
+      ],
+      "customHold": false,
+      "seg": 5,
+      "segp": 0.109,
+      "bg": "#05090B"
+    },
+    {
+      "i": 52,
+      "y": 5102,
+      "pct": 88,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "Now run it yourself. Read the script. Press Ru",
+          "o": 0.05
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 1,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "5:21:248:guard"
+      ],
+      "customHold": false,
+      "seg": 5,
+      "segp": 0.212,
+      "bg": "#05090B"
+    },
+    {
+      "i": 53,
+      "y": 5273,
+      "pct": 91,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "Now run it yourself. Read the script. Press Ru",
+          "o": 0.84
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 1,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "5:40:256:guard"
+      ],
+      "customHold": false,
+      "seg": 5,
+      "segp": 0.4035,
+      "bg": "#05090B"
+    },
+    {
+      "i": 54,
+      "y": 5445,
+      "pct": 94,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "Now run it yourself. Read the script. Pr",
+          "dir": "light-on-dark",
+          "worst": 14.34,
+          "mean": 16.14
+        }
+      ],
+      "cues": [
+        {
+          "t": "Now run it yourself. Read the script. Press Ru",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 1,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "5:60:264:prompt"
+      ],
+      "customHold": false,
+      "seg": 5,
+      "segp": 0.5961,
+      "bg": "#05090B"
+    },
+    {
+      "i": 55,
+      "y": 5616,
+      "pct": 97,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "Now run it yourself. Read the script. Pr",
+          "dir": "light-on-dark",
+          "worst": 12.8,
+          "mean": 16.23
+        }
+      ],
+      "cues": [
+        {
+          "t": "Now run it yourself. Read the script. Press Ru",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 1,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "5:79:273:prompt"
+      ],
+      "customHold": false,
+      "seg": 5,
+      "segp": 0.7875,
+      "bg": "#05090B"
+    },
+    {
+      "i": 56,
+      "y": 5788,
+      "pct": 100,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "Now run it yourself. Read the script. Pr",
+          "dir": "light-on-dark",
+          "worst": 14.28,
+          "mean": 16.17
+        }
+      ],
+      "cues": [
+        {
+          "t": "Now run it yourself. Read the script. Press Ru",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 1,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "5:98:281:prompt"
+      ],
+      "customHold": false,
+      "seg": 5,
+      "segp": 0.9801,
+      "bg": "#05090B"
+    },
+    {
+      "i": 57,
+      "y": 5806,
+      "pct": 100,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "Now run it yourself. Read the script. Pr",
+          "dir": "light-on-dark",
+          "worst": 11.3,
+          "mean": 16.16
+        }
+      ],
+      "cues": [
+        {
+          "t": "Now run it yourself. Read the script. Press Ru",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [],
+      "wipes": [],
+      "act": "-",
+      "stages": [],
+      "segs": [
+        {
+          "i": 0,
+          "label": "Query",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 1,
+          "label": "Embed",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 2,
+          "label": "Retrieve",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 3,
+          "label": "Poison",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 4,
+          "label": "Boundary",
+          "op": 0,
+          "painted": false,
+          "t": null
+        },
+        {
+          "i": 5,
+          "label": "Run",
+          "op": 1,
+          "painted": false,
+          "t": null
+        }
+      ],
+      "custom": [
+        "5:100:282:prompt"
+      ],
+      "customHold": false,
+      "seg": 5,
+      "segp": 1,
+      "bg": "#05090B"
+    }
+  ],
+  "consoleErrors": [],
+  "failed": []
+}

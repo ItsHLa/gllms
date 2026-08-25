@@ -3,13 +3,15 @@ import re
 from fastapi import APIRouter, HTTPException
 
 from backend.config import settings
+from backend.scenarios.registry import registry
 from backend.schemas.scenario import RunRequest, RunResult
 from backend.services.executor import run_python_code
-from backend.scenarios.registry import registry
 
 router = APIRouter(tags=["run"])
 
-_MODE_ASSIGN = re.compile(r'^(\s*)MODE\s*=\s*"[^"]*"\s*(?:#.*)?$', re.MULTILINE)
+_MODE_ASSIGN = re.compile(
+    r'^(\s*)MODE\s*=\s*"[^"]*"\s*(?:#.*)?$', re.MULTILINE
+)
 
 
 def _apply_mode(code: str, mode: str) -> str:
@@ -25,7 +27,9 @@ def _apply_mode(code: str, mode: str) -> str:
 def run_scenario(scenario_id: str, request: RunRequest | None = None) -> RunResult:
     scenario = registry.get(scenario_id)
     if scenario is None:
-        raise HTTPException(status_code=404, detail=f"Scenario '{scenario_id}' not found")
+        raise HTTPException(
+            status_code=404, detail=f"Scenario '{scenario_id}' not found"
+        )
 
     code = request.code if request and request.code else scenario.code
 
@@ -33,7 +37,10 @@ def run_scenario(scenario_id: str, request: RunRequest | None = None) -> RunResu
         if request.mode not in scenario.modes:
             raise HTTPException(
                 status_code=400,
-                detail=f"Invalid mode '{request.mode}'. Valid modes: {', '.join(scenario.modes)}.",
+                detail=(
+                    f"Invalid mode '{request.mode}'. "
+                    f"Valid modes: {', '.join(scenario.modes)}."
+                ),
             )
         code = _apply_mode(code, request.mode)
 

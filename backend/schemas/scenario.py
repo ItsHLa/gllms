@@ -1,5 +1,3 @@
-from typing import Optional
-
 from pydantic import BaseModel, Field
 
 
@@ -18,11 +16,12 @@ class ScenarioDetail(ScenarioSummary):
     expected_output: str
     attacker_prompt: str
     modes: list[str] = Field(default_factory=lambda: ["protected", "vulnerable"])
+    system_prompts: dict[str, str] = Field(default_factory=dict)
 
 
 class RunRequest(BaseModel):
-    code: Optional[str] = None
-    mode: Optional[str] = None
+    code: str | None = None
+    mode: str | None = None
 
 
 class RunResult(BaseModel):
@@ -32,4 +31,4 @@ class RunResult(BaseModel):
     exit_code: int = 0
     duration_ms: int = 0
     timed_out: bool = False
-    error: Optional[str] = None
+    error: str | None = None

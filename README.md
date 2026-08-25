@@ -15,6 +15,7 @@ Built for security learners who want more than static blog posts.
 | Sensitive Data Disclosure via Indirect Prompt Injection | LLM01: Prompt Injection | Advanced |
 | RAG Poisoning: Successful Indirect Prompt Injection | LLM01: Prompt Injection | Advanced |
 | Direct Prompt Injection — Prompt Leakage | LLM01: Prompt Injection | Advanced |
+| SQL Injection via Model Output | Output-Level Attack | Advanced |
 
 Every scenario supports multiple modes:
 

@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
-from backend.config import FRONTEND_DIR, settings
+from backend.config import FRONTEND_DIR, LANDING_DIR, settings
 from backend.routers import run, scenarios
 
 
@@ -27,7 +27,20 @@ def create_app() -> FastAPI:
     app.mount("/static", StaticFiles(directory=FRONTEND_DIR / "static"), name="static")
 
     @app.get("/")
-    def index() -> FileResponse:
+    def landing() -> FileResponse:
+        return FileResponse(LANDING_DIR / "index.html")
+
+    @app.get("/scrollcraft.css")
+    def landing_css() -> FileResponse:
+        return FileResponse(LANDING_DIR / "scrollcraft.css", media_type="text/css")
+
+    @app.get("/scrollcraft.js")
+    def landing_js() -> FileResponse:
+        return FileResponse(LANDING_DIR / "scrollcraft.js", media_type="text/javascript")
+
+    @app.get("/lab")
+    @app.get("/lab/")
+    def lab() -> FileResponse:
         return FileResponse(FRONTEND_DIR / "index.html")
 
     return app
