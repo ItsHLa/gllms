@@ -1,4 +1,12 @@
 const Api = {
+  lang() {
+    return localStorage.getItem("gllms:lang") === "ar" ? "ar" : "en";
+  },
+
+  withLang(url) {
+    return `${url}${url.includes("?") ? "&" : "?"}lang=${this.lang()}`;
+  },
+
   async get(url) {
     const res = await fetch(url);
     if (!res.ok) {
@@ -26,11 +34,11 @@ const Api = {
   },
 
   listScenarios() {
-    return this.get("/api/scenarios");
+    return this.get(this.withLang("/api/scenarios"));
   },
 
   getScenario(id) {
-    return this.get(`/api/scenarios/${encodeURIComponent(id)}`);
+    return this.get(this.withLang(`/api/scenarios/${encodeURIComponent(id)}`));
   },
 
   runScenario(id, body) {
