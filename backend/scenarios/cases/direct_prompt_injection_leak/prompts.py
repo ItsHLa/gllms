@@ -501,3 +501,10 @@ USER INPUT (UNTRUSTED):
 
     return system, user
 
+
+SYSTEM_PROMPTS = {
+    "normal": _NORMAL_SYSTEM,
+    "vulnerable": _VULNERABLE_SYSTEM,
+    "protected": _PROTECTED_SYSTEM,
+}
+
