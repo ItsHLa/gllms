@@ -28,6 +28,22 @@ If the application does not separate **email content** from **system
 instructions**, the hidden instructions inside the email are executed by
 the LLM — a **code injection** attack.
 
+### The assistant's environment
+
+For the demo to be possible, the email assistant is configured as if it runs
+on a TechCorp server with **read access** to a synthetic host environment that
+sits in its prompt context:
+
+- A `/etc/passwd`-style host file (root, daemon, bin `passwd` lines)
+- An application secrets vault with synthetic keys:
+  `api_key=sk_...`, `github_token=ghp_...`, `vault_password=...`,
+  `database_password=...`
+
+These values are **synthetic**. They exist purely so the injected instruction
+has sensitive data that the vulnerable assistant can be tricked into
+reproducing. In protected mode the assistant is told this context is internal
+state it must never echo, and the response-leakage detector blocks any attempt.
+
 ## Why it works
 
 The LLM processes the email as context for generating a reply. In a naive
