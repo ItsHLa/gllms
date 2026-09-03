@@ -1,5 +1,12 @@
 # RAG Poisoning: Successful Indirect Prompt Injection
 
+> **OWASP LLM01:2025** — [Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
+> This scenario demonstrates **Scenario #4: Intentional Model Influence** from
+> the OWASP Top 10 for LLM Applications, with confirmed data exfiltration.
+> An attacker modifies a document in a RAG repository; when a user query
+> retrieves the poisoned content, the embedded instructions cause the LLM to
+> disclose synthetic sensitive data — a full attack-success confirmation.
+
 ## The attack
 
 A RAG-based enterprise assistant answers questions using internal policy
@@ -74,3 +81,25 @@ then switch to **protected** mode to see the same retrieval blocked. Run with
 All personal data is **SYNTHETIC DEMONSTRATION DATA**. The vulnerable mode
 never connects to production databases, real documents, real credentials, or
 real customer data.
+
+## Related OWASP LLM01:2025 attack scenarios
+
+This scenario directly demonstrates **Scenario #4: Intentional Model Influence**
+with confirmed data exfiltration — the most severe outcome of indirect prompt
+injection in a RAG application.
+
+Other LLM01 scenarios that share the same root cause include:
+
+| # | OWASP Scenario | Description |
+|---|---|---|
+| 1 | **Direct Injection** | User input directly instructs the model to ignore guidelines. See the *Direct Prompt Injection — Prompt Leakage* scenario. |
+| 2 | **Indirect Injection** | This scenario: poisoned documents in the knowledge base contain embedded instructions that override the system prompt. |
+| 3 | **Unintentional Injection** | A user inadvertently triggers unexpected behavior by providing input that happens to match embedded instructions. |
+| 5 | **Code Injection** | Exploiting vulnerabilities in LLM-powered applications to inject malicious prompts. See the *Code Injection via LLM Email Assistant* scenario. |
+| 8 | **Adversarial Suffix** | Appending meaningless strings to bypass safety measures. See the *Adversarial Suffix Attack* scenario. |
+
+### References
+
+- [OWASP LLM01:2025 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
+- [Not what you've signed up for: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection](https://arxiv.org/pdf/2302.12173.pdf)
+- [MITRE ATLAS: LLM Prompt Injection — Indirect](https://atlas.mitre.org/techniques/AML.T0051.001)

@@ -1,5 +1,9 @@
 # Direct Prompt Injection — Prompt Leakage
 
+> **OWASP LLM01:2025** — [Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
+> This scenario demonstrates **Scenario #1: Direct Injection** from the OWASP
+> Top 10 for LLM Applications.
+
 ## The attack
 
 A RAG-based enterprise assistant answers questions using internal company
@@ -127,3 +131,25 @@ tests for all three modes.
 All documents, instructions, and security rules are **SYNTHETIC DEMONSTRATION
 DATA**. The vulnerable mode never connects to production systems, real
 documents, real credentials, or real customer data.
+
+## Related OWASP LLM01:2025 attack scenarios
+
+This scenario directly demonstrates **Scenario #1: Direct Injection** from
+the OWASP Top 10 for LLM Applications.
+
+Other LLM01 scenarios that share the same root cause — user input altering
+the LLM's behavior in unintended ways — include:
+
+| # | OWASP Scenario | Description |
+|---|---|---|
+| 2 | **Indirect Injection** | Malicious instructions hidden in external content (webpages, files) that the LLM processes. See the *Indirect Prompt Injection in RAG* scenario. |
+| 3 | **Unintentional Injection** | A user inadvertently provides input that triggers unexpected model behavior (e.g., an applicant using an LLM to optimize a resume, triggering an AI-detection instruction embedded in a job description). |
+| 6 | **Payload Splitting** | An attacker splits a malicious prompt across multiple inputs or documents; when the LLM processes them together, the combined instruction executes. |
+| 8 | **Adversarial Suffix** | An attacker appends a seemingly meaningless string of characters to a prompt, which influences the LLM's output in a malicious way and bypasses safety measures. See the *Adversarial Suffix Attack* scenario. |
+| 9 | **Multilingual/Obfuscated Attack** | Malicious instructions encoded in multiple languages, Base64, or emojis to evade input filters. |
+
+### References
+
+- [OWASP LLM01:2025 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
+- [MITRE ATLAS: LLM Prompt Injection — Direct](https://atlas.mitre.org/techniques/AML.T0051.000)
+- [MITRE ATLAS: LLM Prompt Injection — Indirect](https://atlas.mitre.org/techniques/AML.T0051.001)

@@ -1,5 +1,14 @@
 # Sensitive Data Disclosure via Indirect Prompt Injection
 
+> **OWASP LLM01:2025** — [Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
+> This scenario demonstrates **Scenario #4: Intentional Model Influence** from
+> the OWASP Top 10 for LLM Applications. An attacker modifies a document in a
+> repository used by a RAG application; when a user query retrieves the
+> poisoned content, the hidden instructions override the real system prompt
+> and cause disclosure of sensitive information — maps to the OWASP risk of
+> *Disclosure of sensitive information* and *Content manipulation leading to
+> incorrect or biased outputs*.
+
 ## The attack
 
 A RAG-based enterprise assistant answers questions using internal policy
@@ -53,3 +62,25 @@ the security layer.
 All personal data (employee names, emails, phone numbers, addresses, API
 tokens) is **SYNTHETIC DEMONSTRATION DATA**. The vulnerable mode never touches
 production databases, real documents, real credentials, or real customer data.
+
+## Related OWASP LLM01:2025 attack scenarios
+
+This scenario demonstrates **Scenario #4: Intentional Model Influence** from
+the OWASP Top 10 for LLM Applications, combined with the OWASP risk of
+*Disclosure of sensitive information* (LLM02).
+
+Other LLM01 scenarios that share the same root cause include:
+
+| # | OWASP Scenario | Description |
+|---|---|---|
+| 1 | **Direct Injection** | User input directly instructs the model to ignore guidelines. See the *Direct Prompt Injection — Prompt Leakage* scenario. |
+| 2 | **Indirect Injection** | Malicious instructions hidden in retrieved documents. See the *Indirect Prompt Injection in RAG* scenario. |
+| 3 | **Unintentional Injection** | A user inadvertently triggers unexpected behavior by providing input that matches embedded instructions in a document. |
+| 5 | **Code Injection** | Exploiting vulnerabilities in LLM-powered applications. See the *Code Injection via LLM Email Assistant* scenario. |
+| 8 | **Adversarial Suffix** | Appending meaningless strings to bypass safety measures. See the *Adversarial Suffix Attack* scenario. |
+
+### References
+
+- [OWASP LLM01:2025 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
+- [OWASP LLM02:2025 Sensitive Information Disclosure](https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/)
+- [MITRE ATLAS: LLM Prompt Injection — Indirect](https://atlas.mitre.org/techniques/AML.T0051.001)
