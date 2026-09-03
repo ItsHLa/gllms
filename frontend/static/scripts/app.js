@@ -27,6 +27,7 @@ const I18N = {
     risk: 'Risk',
     llmFollowed: 'LLM Followed',
     systemDisclosed: 'System Disclosed',
+    sensitiveDisclosed: 'Sensitive Disclosed',
     sqlExecution: 'SQL Execution',
     dangerousSql: 'Dangerous SQL',
     sqlValidation: 'SQL Validation',
@@ -35,6 +36,17 @@ const I18N = {
     resultLabel: 'Result',
     retrievedDocs: 'Retrieved Docs',
     sysPromptExpand: 'System Prompt (click to expand)',
+    userQuery: 'User Query',
+    operation: 'Operation',
+    impact: 'Impact',
+    detection: 'Detection',
+    leakedMarkers: 'Leaked Markers',
+    disclosedValues: 'Disclosed Values',
+    sqlExecution: 'SQL Execution',
+    llmGeneratedDangerousSql: 'LLM Generated Dangerous SQL',
+    databaseModified: 'Database Modified',
+    outputValidation: 'Output Validation',
+    agentOutput: 'Agent Output',
     ok: 'OK',
     failed: 'FAILED',
     timeoutBanner: 'TIMEOUT: Script exceeded time limit',
@@ -72,6 +84,7 @@ const I18N = {
     risk: 'الخطورة',
     llmFollowed: 'اتباع النموذج للتعليمة',
     systemDisclosed: 'كشف تعليمات النظام',
+    sensitiveDisclosed: 'كشف البيانات الحساسة',
     sqlExecution: 'تنفيذ SQL',
     dangerousSql: 'SQL خطِر',
     sqlValidation: 'تحقق SQL',
@@ -80,6 +93,17 @@ const I18N = {
     resultLabel: 'النتيجة',
     retrievedDocs: 'المستندات المسترجَعة',
     sysPromptExpand: 'برومبت النظام (انقر للتوسيع)',
+    userQuery: 'استعلام المستخدم',
+    operation: 'العملية',
+    impact: 'التأثير',
+    detection: 'الكشف',
+    leakedMarkers: 'علامات التسريب',
+    disclosedValues: 'القيم المكشوفة',
+    sqlExecution: 'تنفيذ SQL',
+    llmGeneratedDangerousSql: 'SQL خطِر مولَّد من النموذج',
+    databaseModified: 'تعديل قاعدة البيانات',
+    outputValidation: 'تحقق المخرجات',
+    agentOutput: 'مخرجات الوكيل',
     ok: 'نجح',
     failed: 'فشل',
     timeoutBanner: 'انتهاء المهلة: تجاوز السكربت الحد الزمني المسموح',
@@ -110,11 +134,37 @@ watch(locale, (l) => {
 }, { immediate: true });
 
 /**
+ * Extract just the agent's final response from the raw stdout.
+ * Handles the "FINAL RESPONSE" and "AGENT RESPONSE" section markers,
+ * and falls back to the generated SQL for the SQL scenario.
+ */
+function extractAgentOutput(raw) {
+  if (!raw) return '';
+
+  const STRIP_TRAILING = (s) => s.replace(/\n\s*\[[^\]]*\]\s*$/s, '').trim();
+
+  let m = raw.match(/\bFINAL RESPONSE\b[^\n]*\n-{4,}\s*\n([\s\S]*?)(?=\n\s*\n\s*ATTACK-SUCCESS EVALUATION|\n-{4,}\s*\n|\n\s*\n\s*[A-Z][A-Z \-]{3,}\s*\n|$)/);
+  if (m) return STRIP_TRAILING(m[1]);
+
+  m = raw.match(/\bAGENT RESPONSE\b[^\n]*\n={4,}\s*\n([\s\S]*?)(?=\n={4,}\s*\n|\n\s*\n\s*[A-Z][A-Z \-]{3,}\s*\n|$)/);
+  if (m) return STRIP_TRAILING(m[1]);
+
+  m = raw.match(/={3}\s*AGENT RESPONSE\s*={3}\s*\n([\s\S]*)/);
+  if (m) return m[1].trim();
+
+  // SQL scenario: the "agent output" is the generated SQL text
+  m = raw.match(/Generated SQL:\s*\n\s+([\s\S]*?)(?=\n\s*\n|$)/);
+  if (m) return m[1].trim();
+
+  return '';
+}
+
+/**
  * Parse the raw stdout into structured metrics.
- * Returns { metrics, rawOutput }
+ * Returns { metrics, rawOutput, agentOutput }
  */
 function parseMetrics(raw) {
-  if (!raw) return { metrics: {}, rawOutput: '' };
+  if (!raw) return { metrics: {}, rawOutput: '', agentOutput: '' };
 
   const metrics = {};
 
@@ -125,10 +175,14 @@ function parseMetrics(raw) {
   // SQL Execution Disabled indicator
   metrics.sqlExecutionDisabled = /SQL EXECUTION:\s*DISABLED/.test(raw);
 
-  // Injection detected
+  // Injection detected (handles direct prompt injection, SQL attack, adversarial suffix, and email injection)
   metrics.injectionDetected = /DIRECT PROMPT INJECTION DETECTED/.test(raw)
     ? 'Yes'
-    : (/Potential SQL Attack:\s*DETECTED/.test(raw) ? 'Yes' : 'No');
+    : (/ADVERSARIAL SUFFIX DETECTED/.test(raw)
+      ? 'Yes'
+      : (/EMAIL INJECTION DETECTED/.test(raw)
+        ? 'Yes'
+        : (/Potential SQL Attack:\s*DETECTED/.test(raw) ? 'Yes' : 'No')));
 
   // Attack type
   const attackTypeMatch = raw.match(/Attack Type:\s*(.+)/);
@@ -142,13 +196,23 @@ function parseMetrics(raw) {
   const riskMatch = raw.match(/Risk:\s*(.+)/);
   metrics.risk = riskMatch ? riskMatch[1].trim() : '';
 
-  // LLM Followed Injection
-  const llmFollowedMatch = raw.match(/LLM Followed Injection:\s*(YES|NO)/i);
+  // LLM Followed Injection (handles multiple metric names)
+  const llmFollowedMatch = raw.match(/LLM Followed (?:Injection|Suffix):\s*(YES|NO)/i);
   metrics.llmFollowed = llmFollowedMatch ? llmFollowedMatch[1] : '';
 
-  // System Prompt Disclosed
-  const disclosedMatch = raw.match(/System Prompt Disclosed:\s*(YES|NO)/i);
+  // System Prompt Disclosed (handles multiple metric names)
+  const disclosedMatch = raw.match(/(?:System Prompt Disclosed|System Disclosed):\s*(YES|NO)/i);
   metrics.systemDisclosed = disclosedMatch ? disclosedMatch[1] : '';
+
+  // Sensitive Data Disclosed (code injection scenario)
+  const sensitiveDisclosedMatch = raw.match(/Sensitive (?:Data )?Disclosed:\s*(YES|NO)/i);
+  metrics.sensitiveDisclosed = sensitiveDisclosedMatch ? sensitiveDisclosedMatch[1] : '';
+
+  // Sensitive Data Disclosed value (inline in attack panels, e.g. "Sensitive Data Disclosed: YES (System instructions...)")
+  if (!metrics.sensitiveDisclosed) {
+    const sensInline = raw.match(/Sensitive Data Disclosed:\s*(YES|NO)\b/i);
+    metrics.sensitiveDisclosed = sensInline ? sensInline[1] : '';
+  }
 
   // Dangerous SQL generated
   const dangerousSqlMatch = raw.match(/Dangerous SQL Generated:\s*(YES|NO)/i);
@@ -184,7 +248,49 @@ function parseMetrics(raw) {
   const spMatch = raw.match(/AGENT SYSTEM PROMPT\n-{10,}\n([\s\S]*?)(?=\nUSER INPUT ANALYSIS)/);
   metrics.systemPrompt = spMatch ? spMatch[1].trim() : '';
 
-  return { metrics, rawOutput: raw };
+  // ---- Additional metrics merged from the output ----
+
+  // User query
+  const queryMatch = raw.match(/Query:\s*"(.+?)"/);
+  metrics.userQuery = queryMatch ? queryMatch[1].trim() : '';
+
+  // Dangerous Operation type (SQL scenario)
+  const operationMatch = raw.match(/(?<!Dangerous )Operation:\s*(.+)/);
+  metrics.operation = operationMatch ? operationMatch[1].trim() : '';
+
+  // Impact description
+  const impactMatch = raw.match(/Impact:\s*(.+)/);
+  metrics.impact = impactMatch ? impactMatch[1].trim() : '';
+
+  // Detection status (BLOCKED / BYPASSED / observed)
+  const detectionMatch = raw.match(/Detection:\s*(.+)/);
+  metrics.detection = detectionMatch ? detectionMatch[1].trim() : '';
+
+  // Leaked markers
+  const leakedMatch = raw.match(/Leaked markers:\s*(.+)/);
+  metrics.leakedMarkers = leakedMatch ? leakedMatch[1].trim() : '';
+
+  // Disclosed values
+  const disclosedValuesMatch = raw.match(/Disclosed values:\s*(.+)/);
+  metrics.disclosedValues = disclosedValuesMatch ? disclosedValuesMatch[1].trim() : '';
+
+  // SQL Execution status
+  const sqlExecMatch = raw.match(/SQL Execution:\s*(.+)/);
+  metrics.sqlExecution = sqlExecMatch ? sqlExecMatch[1].trim() : '';
+
+  // LLM Generated Dangerous SQL (SQL security result)
+  const llmDangerousMatch = raw.match(/LLM Generated Dangerous SQL:\s*(YES|NO)/i);
+  metrics.llmGeneratedDangerousSql = llmDangerousMatch ? llmDangerousMatch[1] : '';
+
+  // Database Modified
+  const dbModifiedMatch = raw.match(/Database Modified:\s*(YES|NO)/i);
+  metrics.databaseModified = dbModifiedMatch ? dbModifiedMatch[1] : '';
+
+  // Output Validation
+  const outValidMatch = raw.match(/Output Validation:\s*(.+)/);
+  metrics.outputValidation = outValidMatch ? outValidMatch[1].trim() : '';
+
+  return { metrics, rawOutput: raw, agentOutput: extractAgentOutput(raw) };
 }
 
 /**
@@ -265,6 +371,18 @@ function highlightOutput(raw) {
   return out.join('\n');
 }
 
+/**
+ * Escape + lightly highlight the agent's final response text.
+ * The response is plain text; we only escape HTML for safety.
+ */
+function highlightAgentOutput(raw) {
+  if (!raw) return '';
+  return raw
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
 // System prompts for each mode in the SQL Injection scenario
 const SYSTEM_PROMPTS = {
   normal: `You are a SQL generation agent for a cybersecurity research laboratory.
@@ -340,7 +458,7 @@ const app = createApp({
 
     // Parsed output
     const parsed = computed(() => {
-      if (!result.value?.stdout) return { metrics: {}, rawOutput: '' };
+      if (!result.value?.stdout) return { metrics: {}, rawOutput: '', agentOutput: '' };
       return parseMetrics(result.value.stdout);
     });
 
@@ -438,7 +556,7 @@ const app = createApp({
       selectScenario,
       run,
       copyPrompt,
-      highlightOutput,
+      highlightAgentOutput,
     };
   },
 });

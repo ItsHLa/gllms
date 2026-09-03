@@ -188,6 +188,10 @@
                       <div class="metric-label">{{ t('systemDisclosed') }}</div>
                       <div class="metric-value" :class="parsed.metrics.systemDisclosed === 'YES' ? 'metric-warn' : 'metric-ok'">{{ parsed.metrics.systemDisclosed }}</div>
                     </div>
+                    <div class="metric-group" v-if="parsed.metrics.sensitiveDisclosed">
+                      <div class="metric-label">{{ t('sensitiveDisclosed') }}</div>
+                      <div class="metric-value" :class="parsed.metrics.sensitiveDisclosed === 'YES' ? 'metric-warn' : 'metric-ok'">{{ parsed.metrics.sensitiveDisclosed }}</div>
+                    </div>
                     <!-- SQL-specific metrics -->
                     <div class="metric-group" v-if="parsed.metrics.sqlExecutionDisabled">
                       <div class="metric-label">{{ t('sqlExecution') }}</div>
@@ -208,6 +212,42 @@
                     <div class="metric-group" v-if="parsed.metrics.generatedSql">
                       <div class="metric-label">{{ t('generatedSql') }}</div>
                       <div class="metric-value metric-dim" style="font-family: monospace; font-size: 0.72rem;">{{ parsed.metrics.generatedSql }}</div>
+                    </div>
+                    <div class="metric-group" v-if="parsed.metrics.llmGeneratedDangerousSql">
+                      <div class="metric-label">{{ t('llmGeneratedDangerousSql') }}</div>
+                      <div class="metric-value" :class="parsed.metrics.llmGeneratedDangerousSql === 'YES' ? 'metric-warn' : 'metric-ok'">{{ parsed.metrics.llmGeneratedDangerousSql }}</div>
+                    </div>
+                    <div class="metric-group" v-if="parsed.metrics.operation">
+                      <div class="metric-label">{{ t('operation') }}</div>
+                      <div class="metric-value metric-dim">{{ parsed.metrics.operation }}</div>
+                    </div>
+                    <div class="metric-group" v-if="parsed.metrics.outputValidation">
+                      <div class="metric-label">{{ t('outputValidation') }}</div>
+                      <div class="metric-value metric-dim">{{ parsed.metrics.outputValidation }}</div>
+                    </div>
+                    <div class="metric-group" v-if="parsed.metrics.databaseModified">
+                      <div class="metric-label">{{ t('databaseModified') }}</div>
+                      <div class="metric-value" :class="parsed.metrics.databaseModified === 'YES' ? 'metric-warn' : 'metric-ok'">{{ parsed.metrics.databaseModified }}</div>
+                    </div>
+                    <div class="metric-group" v-if="parsed.metrics.detection">
+                      <div class="metric-label">{{ t('detection') }}</div>
+                      <div class="metric-value" :class="/BLOCKED/.test(parsed.metrics.detection) ? 'metric-ok' : (/BYPASSED/.test(parsed.metrics.detection) ? 'metric-warn' : 'metric-dim')">{{ parsed.metrics.detection }}</div>
+                    </div>
+                    <div class="metric-group" v-if="parsed.metrics.impact">
+                      <div class="metric-label">{{ t('impact') }}</div>
+                      <div class="metric-value metric-dim">{{ parsed.metrics.impact }}</div>
+                    </div>
+                    <div class="metric-group" v-if="parsed.metrics.leakedMarkers">
+                      <div class="metric-label">{{ t('leakedMarkers') }}</div>
+                      <div class="metric-value metric-dim">{{ parsed.metrics.leakedMarkers }}</div>
+                    </div>
+                    <div class="metric-group" v-if="parsed.metrics.disclosedValues">
+                      <div class="metric-label">{{ t('disclosedValues') }}</div>
+                      <div class="metric-value" :class="parsed.metrics.disclosedValues === 'None' ? 'metric-ok' : 'metric-warn'">{{ parsed.metrics.disclosedValues }}</div>
+                    </div>
+                    <div class="metric-group" v-if="parsed.metrics.userQuery">
+                      <div class="metric-label">{{ t('userQuery') }}</div>
+                      <div class="metric-value metric-dim" style="font-size: 0.72rem;">{{ parsed.metrics.userQuery }}</div>
                     </div>
                     <!-- System Prompt (collapsible) -->
                     <div class="metric-group" v-if="parsed.metrics.systemPrompt">
@@ -263,12 +303,12 @@
                   <template v-if="result">
                     <!-- Failure banner -->
                     <pre v-if="result.exit_code !== 0 || result.timed_out" class="output-fail-banner">{{ result.timed_out ? t('timeoutBanner') : t('errorBanner', { code: result.exit_code }) }}</pre>
-                    <!-- Stdout -->
-                    <pre v-if="result.stdout && result.stdout.trim()" class="output-stdout" v-html="highlightOutput(result.stdout)"></pre>
+                    <!-- Agent output (only the final response) -->
+                    <pre v-if="parsed.agentOutput" class="output-stdout" v-html="highlightAgentOutput(parsed.agentOutput)"></pre>
                     <!-- Stderr -->
                     <pre v-if="result.stderr && result.stderr.trim()" class="output-stderr">{{ result.stderr }}</pre>
                     <!-- Empty state -->
-                    <p v-if="!result.stdout?.trim() && !result.stderr?.trim()" class="output-placeholder">{{ t('noOutput') }}</p>
+                    <p v-if="!parsed.agentOutput && !result.stderr?.trim()" class="output-placeholder">{{ t('noOutput') }}</p>
                   </template>
                   <p v-else-if="errorMessage" class="output-error">{{ errorMessage }}</p>
                   <p v-else class="output-placeholder">{{ t('outputPlaceholder') }}</p>
@@ -279,7 +319,10 @@
         </div>
       </template>
 
-      <div v-else-if="loading" class="empty">{{ t('loading') }}</div>
+      <div v-else-if="loading" class="empty empty-loading">
+        <span class="spinner" aria-hidden="true"></span>
+        <span>{{ t('loading') }}</span>
+      </div>
       <div v-else class="empty">{{ t('emptySelect') }}</div>
     </main>
   </div>
@@ -288,6 +331,6 @@
   <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
   <script src="https://unpkg.com/marked@15.0.0/marked.min.js"></script>
   <script src="/static/scripts/api.js?v=3"></script>
-  <script src="/static/scripts/app.js?v=14"></script>
+  <script src="/static/scripts/app.js?v=15"></script>
 </body>
 </html>
