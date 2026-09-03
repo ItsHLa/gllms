@@ -146,7 +146,7 @@ function extractAgentOutput(raw) {
   let m = raw.match(/\bFINAL RESPONSE\b[^\n]*\n-{4,}\s*\n([\s\S]*?)(?=\n\s*\n\s*ATTACK-SUCCESS EVALUATION|\n-{4,}\s*\n|\n\s*\n\s*[A-Z][A-Z \-]{3,}\s*\n|$)/);
   if (m) return STRIP_TRAILING(m[1]);
 
-  m = raw.match(/\bAGENT RESPONSE\b[^\n]*\n={4,}\s*\n([\s\S]*?)(?=\n={4,}\s*\n|\n\s*\n\s*[A-Z][A-Z \-]{3,}\s*\n|$)/);
+  m = raw.match(/\bAGENT RESPONSE\b[^\n]*\n[-=]{4,}\s*\n([\s\S]*?)(?=\n[-=]{4,}\s*\n|\n\s*\n\s*[A-Z][A-Z \-]{3,}\s*\n|$)/);
   if (m) return STRIP_TRAILING(m[1]);
 
   m = raw.match(/={3}\s*AGENT RESPONSE\s*={3}\s*\n([\s\S]*)/);
@@ -473,9 +473,9 @@ const app = createApp({
           ? saved
           : scenarios.value[0]?.id;
         if (target) await selectScenario(target);
-        else loading.value = false;
       } catch (err) {
         errorMessage.value = err.message;
+      } finally {
         loading.value = false;
       }
     }
@@ -493,6 +493,7 @@ const app = createApp({
         localStorage.setItem("gllms:scenario", id);
       } catch (err) {
         errorMessage.value = err.message;
+        loading.value = false;
       }
     }
 
