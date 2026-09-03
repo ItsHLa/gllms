@@ -11,7 +11,6 @@ Flow:
 
 from langgraph.checkpoint.memory import InMemorySaver
 
-from backend.scenarios._rag_resilience import safe_retrieve
 from backend.scenarios.cases.indirect_prompt_injection import detection, documents, ingest, prompts
 from src.agent import Agent
 from src.llm import LLMFactory
@@ -42,24 +41,23 @@ def _build_agent(system_prompt: str) -> Agent:
 
 
 def _retrieve(vectorstore: RAGVectorStore, user_query: str) -> list[dict]:
-    docs = safe_retrieve(vectorstore, user_query, documents.build_documents(), TOP_K)
-    seen = set()
-    unique = []
-    for d in docs:
-        title = d.metadata.get("title") or "Untitled"
-        if title in seen:
-            continue
-        seen.add(title)
-        unique.append(d)
+    """Return the scenario's own synthetic knowledge base.
+
+    The demo is self-contained: the poisoned document is always included with
+    its current content, and no foreign documents from the shared vector index
+    ever leak into the context. The poisoned document is always present so the
+    attack is deterministic regardless of vector-store state.
+    """
+    docs = documents.build_documents()
     return [
         {
             "title": d.metadata.get("title", "Untitled"),
             "category": d.metadata.get("category", "unknown"),
             "content": d.page_content,
-            "malicious": False,
+            "malicious": d.metadata.get("category") == "poisoned",
         }
-        for d in unique
-    ]
+        for d in docs
+    ][:TOP_K]
 
 
 def _extract_text(response: object) -> str:
