@@ -611,6 +611,65 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0.01em; }
 
 .output-stdout { color: var(--code-text); }
 .output-stderr { color: var(--err); margin-top: 12px; }
+
+.output-markdown {
+  color: var(--text);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  word-break: break-word;
+  position: relative;
+  z-index: 2;
+}
+.output-markdown > :first-child { margin-top: 0; }
+.output-markdown > :last-child { margin-bottom: 0; }
+.output-markdown h1,
+.output-markdown h2,
+.output-markdown h3,
+.output-markdown h4 {
+  color: var(--text);
+  margin: 1.1em 0 0.5em;
+  line-height: 1.3;
+}
+.output-markdown h1 { font-size: 1.15rem; }
+.output-markdown h2 { font-size: 1.05rem; }
+.output-markdown h3 { font-size: 0.98rem; }
+.output-markdown h4 { font-size: 0.92rem; }
+.output-markdown a { color: var(--brand); }
+.output-markdown strong { color: var(--text); }
+.output-markdown code {
+  background: var(--ph-faint);
+  color: var(--brand);
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-size: 0.88em;
+}
+.output-markdown pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border-dim);
+  color: var(--code-text);
+  padding: 12px 14px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: inherit;
+}
+.output-markdown pre code { background: transparent; padding: 0; color: inherit; }
+.output-markdown ul,
+.output-markdown ol { padding-left: 1.4em; margin: 0.4em 0; }
+.output-markdown blockquote {
+  margin: 0.6em 0;
+  padding: 2px 0 2px 12px;
+  border-left: 3px solid var(--brand);
+  color: var(--text-muted);
+}
+.output-markdown hr {
+  border: none;
+  border-top: 1px solid var(--border-dim);
+  margin: 14px 0;
+}
+[dir="rtl"] .output-markdown ul,
+[dir="rtl"] .output-markdown ol { padding-left: 0; padding-right: 1.4em; }
+[dir="rtl"] .output-markdown blockquote { border-left: none; border-right: 3px solid var(--brand); padding-left: 0; padding-right: 12px; }
+
 .output-error { color: var(--err); padding: 16px 20px; margin: 0; position: relative; z-index: 2; }
 .output-placeholder { color: var(--text-muted); padding: 24px; margin: 0; font-style: italic; position: relative; z-index: 2; }
 

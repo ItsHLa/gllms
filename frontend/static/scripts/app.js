@@ -371,18 +371,6 @@ function highlightOutput(raw) {
   return out.join('\n');
 }
 
-/**
- * Escape + lightly highlight the agent's final response text.
- * The response is plain text; we only escape HTML for safety.
- */
-function highlightAgentOutput(raw) {
-  if (!raw) return '';
-  return raw
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
-}
-
 // System prompts for each mode in the SQL Injection scenario
 const SYSTEM_PROMPTS = {
   normal: `You are a SQL generation agent for a cybersecurity research laboratory.
@@ -466,6 +454,13 @@ const app = createApp({
       marked.parse(scenario.value?.article || "")
     );
 
+    // Agent output rendered as Markdown
+    const renderedAgentOutput = computed(() => {
+      const out = parsed.value.agentOutput;
+      if (!out) return '';
+      return marked.parse(out);
+    });
+
     function isBusy() {
       return running.value;
     }
@@ -547,6 +542,7 @@ const app = createApp({
       selectedMode,
       parsed,
       renderedArticle,
+      renderedAgentOutput,
       currentSystemPrompt,
       currentModeNote,
       sysPromptTitle,
@@ -556,7 +552,6 @@ const app = createApp({
       selectScenario,
       run,
       copyPrompt,
-      highlightAgentOutput,
     };
   },
 });
