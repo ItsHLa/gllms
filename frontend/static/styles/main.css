@@ -195,6 +195,67 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0.01em; }
 .scenario-link-title { display: block; font-weight: 600; font-size: 0.86rem; }
 .scenario-link-cat { display: block; font-size: 0.72rem; margin-top: 2px; color: var(--text-muted); }
 
+.scenario-link-owasp {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.owasp-badge {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 1px 6px;
+  border-radius: 3px;
+  background: rgba(70, 240, 139, 0.12);
+  color: var(--brand);
+  border: 1px solid rgba(70, 240, 139, 0.25);
+}
+
+.owasp-badge.owasp-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-muted);
+  border-color: rgba(255, 255, 255, 0.12);
+  font-weight: 500;
+}
+
+.owasp-badge.owasp-LLM01 {
+  background: rgba(255, 99, 71, 0.12);
+  color: #ff6347;
+  border-color: rgba(255, 99, 71, 0.3);
+}
+
+.owasp-badge.owasp-LLM02 {
+  background: rgba(255, 165, 0, 0.12);
+  color: #ffa500;
+  border-color: rgba(255, 165, 0, 0.3);
+}
+
+.owasp-badge.owasp-LLM05 {
+  background: rgba(138, 43, 226, 0.12);
+  color: #bb77ff;
+  border-color: rgba(138, 43, 226, 0.3);
+}
+
+.owasp-badge.owasp-LLM06 {
+  background: rgba(0, 191, 255, 0.12);
+  color: #00bfff;
+  border-color: rgba(0, 191, 255, 0.3);
+}
+
+.scenario-link.active .owasp-badge {
+  background: rgba(0, 0, 0, 0.15);
+  color: var(--accent-ink);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.scenario-link.active .owasp-badge.owasp-secondary {
+  background: rgba(0, 0, 0, 0.08);
+  opacity: 0.7;
+}
+
 .content {
   flex: 1;
   min-width: 0;

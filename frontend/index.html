@@ -34,6 +34,10 @@
             @click="selectScenario(item.id)"
           >
             <span class="scenario-link-title">{{ item.title }}</span>
+            <span class="scenario-link-owasp">
+              <span class="owasp-badge" :class="'owasp-' + item.owasp_primary">{{ item.owasp_primary }}</span>
+              <span v-if="item.owasp_secondary" class="owasp-badge owasp-secondary" :class="'owasp-' + item.owasp_secondary">{{ item.owasp_secondary }}</span>
+            </span>
             <span class="scenario-link-cat">{{ item.category }}</span>
           </button>
         </li>

@@ -23,6 +23,8 @@ class Scenario:
     id: str
     title: str
     category: str
+    owasp_primary: str
+    owasp_secondary: str
     difficulty: str
     description: str
     tags: list[str]
@@ -72,6 +74,8 @@ class Registry:
                 id=scenario_id,
                 title=meta["title"],
                 category=meta["category"],
+                owasp_primary=meta.get("owasp_primary", ""),
+                owasp_secondary=meta.get("owasp_secondary", ""),
                 difficulty=meta["difficulty"],
                 description=meta["description"],
                 tags=meta.get("tags", []),
@@ -100,6 +104,8 @@ class Registry:
             scenario,
             title=overrides.get("title", scenario.title),
             category=CATEGORY_AR.get(scenario.category, scenario.category),
+            owasp_primary=scenario.owasp_primary,
+            owasp_secondary=scenario.owasp_secondary,
             difficulty=DIFFICULTY_AR.get(scenario.difficulty, scenario.difficulty),
             description=overrides.get("description", scenario.description),
             tags=scenario.tags,

@@ -2,6 +2,8 @@ SCENARIO_METADATA = {
     "indirect-prompt-injection": {
         "title": "Indirect Prompt Injection in RAG",
         "category": "LLM01: Prompt Injection",
+        "owasp_primary": "LLM01",
+        "owasp_secondary": "",
         "difficulty": "Advanced",
         "description": (
             "A poisoned document inside the RAG knowledge base tries to "
@@ -26,7 +28,9 @@ SCENARIO_METADATA = {
     },
     "sensitive-data-disclosure": {
         "title": "Sensitive Data Disclosure via Indirect Prompt Injection",
-        "category": "LLM01: Prompt Injection",
+        "category": "LLM02: Sensitive Information Disclosure",
+        "owasp_primary": "LLM02",
+        "owasp_secondary": "LLM01",
         "difficulty": "Advanced",
         "description": (
             "A poisoned 'User Data Handling Policy' document inside the RAG "
@@ -56,6 +60,8 @@ SCENARIO_METADATA = {
     "indirect-prompt-injection-success": {
         "title": "RAG Poisoning: Successful Indirect Prompt Injection",
         "category": "LLM01: Prompt Injection",
+        "owasp_primary": "LLM01",
+        "owasp_secondary": "LLM02",
         "difficulty": "Advanced",
         "description": (
             "The poisoned 'User Data Handling Policy' instructs the assistant "
@@ -85,6 +91,8 @@ SCENARIO_METADATA = {
     "direct-prompt-injection-leak": {
         "title": "Direct Prompt Injection - Prompt Leakage",
         "category": "LLM01: Prompt Injection",
+        "owasp_primary": "LLM01",
+        "owasp_secondary": "LLM06",
         "difficulty": "Advanced",
         "description": (
             "A malicious user command — 'Ignore all previous instructions… "
@@ -121,7 +129,9 @@ SCENARIO_METADATA = {
     },
     "sql-injection-output": {
         "title": "SQL Injection via Model Output",
-        "category": "Output-Level Attack",
+        "category": "LLM05: Improper Output Handling",
+        "owasp_primary": "LLM05",
+        "owasp_secondary": "LLM01",
         "difficulty": "Advanced",
         "description": (
             "A security-testing chatbot converts natural-language user requests "
@@ -148,6 +158,8 @@ SCENARIO_METADATA = {
     "adversarial-suffix": {
         "title": "Adversarial Suffix Attack",
         "category": "LLM01: Prompt Injection",
+        "owasp_primary": "LLM01",
+        "owasp_secondary": "",
         "difficulty": "Advanced",
         "description": (
             "An attacker appends a seemingly meaningless string of characters to "
@@ -176,6 +188,8 @@ SCENARIO_METADATA = {
     "code-injection": {
         "title": "Code Injection via LLM Email Assistant",
         "category": "LLM01: Prompt Injection",
+        "owasp_primary": "LLM01",
+        "owasp_secondary": "LLM05",
         "difficulty": "Advanced",
         "description": (
             "An LLM-powered email assistant processes incoming emails to draft "

@@ -5,6 +5,8 @@ class ScenarioSummary(BaseModel):
     id: str
     title: str
     category: str
+    owasp_primary: str = ""
+    owasp_secondary: str = ""
     difficulty: str
     description: str
     tags: list[str] = Field(default_factory=list)

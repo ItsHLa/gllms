@@ -8,6 +8,8 @@ code blocks.
 
 CATEGORY_AR = {
     "LLM01: Prompt Injection": "LLM01: حقن الأوامر",
+    "LLM02: Sensitive Information Disclosure": "LLM02: الكشف عن المعلومات الحساسة",
+    "LLM05: Improper Output Handling": "LLM05: معالجة المخرجات غير السليمة",
     "Output-Level Attack": "هجوم على مستوى المخرجات",
 }
 
